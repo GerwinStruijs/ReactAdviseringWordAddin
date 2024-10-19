@@ -21,7 +21,7 @@ initializeIcons();
 
 let isOfficeInitialized = false;
 
-const title = 'Contoso Task Pane Add-in TypeScript and .NET Core 3.1';
+const title = 'Contoso Task Pane Add-in TypeScript and .NET 8';
 
 const render = (Component) => {
     ReactDOM.render(

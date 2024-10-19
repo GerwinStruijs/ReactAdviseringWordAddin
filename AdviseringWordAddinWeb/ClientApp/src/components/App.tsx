@@ -56,7 +56,7 @@ export default class App extends React.Component<AppProps, AppState> {
         /**
          * Insert your Word code here
          */
-          const sentence: Word.Range = context.document.body.insertText("This is some formatted text!", "Replace");
+          const sentence: Word.Range = context.document.body.insertText("hallo This is some formatted text!", "Replace");
           sentence.font.set({
               name: "Courier New",
               bold: true,
