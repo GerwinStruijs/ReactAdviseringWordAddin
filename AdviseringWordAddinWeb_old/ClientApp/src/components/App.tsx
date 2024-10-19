@@ -52,18 +52,20 @@ export default class App extends React.Component<AppProps, AppState> {
 
   click = async () => {
     try {
-      await Word.run(async (context) => {
+      await Excel.run(async (context) => {
         /**
-         * Insert your Word code here
+         * Insert your Excel code here
          */
-          const sentence: Word.Range = context.document.body.insertText("This is some formatted text!", "Replace");
-          sentence.font.set({
-              name: "Courier New",
-              bold: true,
-              size: 18
-          });
+        const range = context.workbook.getSelectedRange();
+
+        // Read the range address
+        range.load('address');
+
+        // Update the fill color
+        range.format.fill.color = 'red';
 
         await context.sync();
+        console.log(`The range address was ${range.address}.`);
       });
     } catch (error) {
       console.error(error);
@@ -87,7 +89,7 @@ export default class App extends React.Component<AppProps, AppState> {
       <div className="ms-welcome">
         <Header logo={logo} title={this.props.title} message="Welcome TypeScript" />
         <HeroList
-          message="Discover what Office .NET 8 Add-ins can do for you today!"
+          message="Discover what Office .NET Core 3.1 Add-ins can do for you today!"
           items={this.state.listItems}
         >
           <p className="ms-font-l">
