@@ -5,7 +5,7 @@
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
-    <SpaRoot>ClientApp\</SpaRoot>
+    <SpaRoot>src\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <TargetOfficeVersion>15.0</TargetOfficeVersion>
   </PropertyGroup>
@@ -13,27 +13,15 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="%2a%2a\**" />
-    <Compile Remove="ClientApp\src\dist\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="%2a%2a\**" />
-    <Content Remove="ClientApp\src\dist\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="%2a%2a\**" />
-    <EmbeddedResource Remove="ClientApp\src\dist\**" />
     <None Remove="%2a%2a\**" />
-    <None Remove="ClientApp\src\dist\**" />
     <TypeScriptCompile Remove="%2a%2a\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="ClientApp\src\components\App.tsx" />
-    <None Remove="ClientApp\src\components\Header.tsx" />
-    <None Remove="ClientApp\src\components\HeroList.tsx" />
-    <None Remove="ClientApp\src\components\Progress.tsx" />
-    <None Remove="ClientApp\src\index.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,14 +31,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\components\App.tsx" />
-    <TypeScriptCompile Include="ClientApp\src\components\Header.tsx" />
-    <TypeScriptCompile Include="ClientApp\src\components\HeroList.tsx" />
-    <TypeScriptCompile Include="ClientApp\src\components\Progress.tsx" />
-    <TypeScriptCompile Include="ClientApp\src\index.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

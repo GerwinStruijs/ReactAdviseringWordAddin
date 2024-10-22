@@ -27,7 +27,7 @@ namespace WebApplicationReact
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "src/build";
             });
         }
 
@@ -61,10 +61,11 @@ namespace WebApplicationReact
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "src";
 
                 if (env.IsDevelopment())
                 {
+                    spa.Options.DevServerPort = 5173;
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
