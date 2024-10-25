@@ -11,11 +11,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@fluentui/react-components": "^9.46.8",
+    "@fluentui/react-icons": "^2.0.232",
+    "@types/office-js": "^1.0.438",
+    "core-js": "^3.36.0",
+    "es6-promise": "^4.2.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.9",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
