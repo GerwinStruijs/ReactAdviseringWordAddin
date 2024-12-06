@@ -25,7 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\taskpane\components\Body.tsx" />
     <None Remove="src\taskpane\components\Header.tsx" />
+    <None Remove="src\taskpane\insertText.ts" />
+    <None Remove="src\taskpane\makeStyles.ts" />
   </ItemGroup>
 
   <ItemGroup>

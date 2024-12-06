@@ -1,17 +1,10 @@
-import { useState } from 'react'
+import { useStyles } from "./makeStyles"
 import Header from "./Header";
-import { makeStyles } from "@fluentui/react-components";
-import './App.css'
+import Body from "./Body";
 
 interface AppProps {
     title: string;
 }
-
-const useStyles = makeStyles({
-    root: {
-        minHeight: "100vh",
-    },
-});
 
 const App: React.FC<AppProps> = (props: AppProps) => {
 
@@ -19,9 +12,8 @@ const App: React.FC<AppProps> = (props: AppProps) => {
 
   return (
       <div className={styles.root}>
-          <div>
-                 <Header logo="assets/react.svg" title={props.title} message="Welcome" />
-          </div>
+          <Header logo="assets/react.svg" title={props.title} message="Welcome" />
+          <Body/>
     </div>
   )
 }
