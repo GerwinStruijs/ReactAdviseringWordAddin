@@ -1,4 +1,4 @@
-import { useStyles } from "./makeStyles"
+import { useStyles } from "./styles/App.Styles"
 import Header from "./Header";
 import Body from "./Body";
 
@@ -8,7 +8,7 @@ interface AppProps {
 
 const App: React.FC<AppProps> = (props: AppProps) => {
 
-    const styles = useStyles();
+  const styles = useStyles();
 
   return (
       <div className={styles.root}>
