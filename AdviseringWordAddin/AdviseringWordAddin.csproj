@@ -43,6 +43,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="AdviseringWordAddinManifest\Concept_W03.24.00054.docx" />
     <None Include="AdviseringWordAddinManifest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{8f74383d-244f-4f39-a6ef-4a2988ec56a3}</SharePointProjectItemId>
     </None>

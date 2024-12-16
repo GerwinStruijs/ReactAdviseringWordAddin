@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="src\taskpane\components\TextInsertion.tsx" />
+    <TypeScriptCompile Remove="src\taskpane\components\Initialisation.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +47,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\taskpane\components\Atoms\" />
+    <Folder Include="src\taskpane\components\hooks\" />
+    <Folder Include="src\taskpane\components\store\" />
+    <Folder Include="src\taskpane\components\Pages\" />
+    <Folder Include="src\taskpane\components\Templates\" />
+    <Folder Include="src\taskpane\components\Organisms\" />
+    <Folder Include="src\taskpane\services\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,13 +1,12 @@
 ﻿    import * as React from "react";
-    import { useStyles } from "./styles/Body.Styles"
+    import { useStyles } from "../styles/Body.Styles"
     import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, mergeClasses } from "@fluentui/react-components";
     import TextInsertion from "./TextInsertion";
     import { insertText } from "../insertText";
 
-    export interface BodyProps {
-    }
+    export type BodyProps = unknown
 
-    const Body: React.FC<BodyProps> = (props: BodyProps) => {
+    const Body: React.FC<BodyProps> = () => {
 
         const [selectedItem, setselectedItem] = React.useState(0);
 

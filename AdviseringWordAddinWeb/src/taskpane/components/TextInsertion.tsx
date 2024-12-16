@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { useStyles } from "./styles/Body.Styles"
+import { useStyles } from "../styles/Body.Styles"
 import { Button, Field, Textarea } from "@fluentui/react-components";
 
 /* global HTMLTextAreaElement */

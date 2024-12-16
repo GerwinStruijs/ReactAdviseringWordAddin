@@ -1,4 +1,4 @@
-import { useStyles } from "./styles/App.Styles"
+import { useStyles } from "../styles/App.Styles"
 import Header from "./Header";
 import Body from "./Body";
 
