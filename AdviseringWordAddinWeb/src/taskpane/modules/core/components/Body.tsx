@@ -1,8 +1,9 @@
 ﻿    import * as React from "react";
-    import { useStyles } from "../styles/Body.Styles"
+    import { useStyles } from "../../../styles/Body.Styles"
     import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, mergeClasses } from "@fluentui/react-components";
-    import TextInsertion from "./TextInsertion";
-    import { insertText } from "../insertText";
+    import TextInsertion from "../../document/components/TextInsertion";
+    import Document from "../../document/components/Document";
+    import { insertText } from "../../document/components/insertText";
 
     export type BodyProps = unknown
 
@@ -15,9 +16,9 @@
         return (
             <Accordion className={styles.accordion} collapsible>
                 <AccordionItem value="1" onClick={() => setselectedItem(1)}>
-                    <AccordionHeader className={mergeClasses(styles.accordionHeader, selectedItem == 1 && styles.accordionHeaderChecked)}>Insert tekst</AccordionHeader>
+                    <AccordionHeader className={mergeClasses(styles.accordionHeader, selectedItem == 1 && styles.accordionHeaderChecked)}>Initialize document</AccordionHeader>
                     <AccordionPanel>
-                    <TextInsertion insertText={insertText} />
+                        <Document></Document>
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem value="2" onClick={() => setselectedItem(2)} >

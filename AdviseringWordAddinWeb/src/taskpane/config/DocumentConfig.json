@@ -1,0 +1,81 @@
+{
+  "bookmarkMapper": [
+    {
+      "bookmarkName": "bmAanhef",
+      "contentControlTag": "ccAanhef",
+      "contentControlTitel": "Aanhef",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmBetreft",
+      "contentControlTag": "ccBetreft",
+      "contentControlTitel": "Betreft",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmDatumAanmaak",
+      "contentControlTag": "ccDatumAanmaak",
+      "contentControlTitel": "DatumAanmaak",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmDictum",
+      "contentControlTag": "ccDictum",
+      "contentControlTitel": "Dictum",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmProcesStapAan",
+      "contentControlTag": "ccProcesStapAan",
+      "contentControlTitel": "ProcesStapAan",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmProcesStapNaam",
+      "contentControlTag": "ccProcesStapNaam",
+      "contentControlTitel": "ProcesStapNaam",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmVrijeTekst1",
+      "contentControlTag": "ccVrijeTekst1",
+      "contentControlTitel": "VrijeTekst1",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmvtJurist",
+      "contentControlTag": "ccvtJurist",
+      "contentControlTitel": "Jurist",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmvtMeelezer",
+      "contentControlTag": "ccvtMeelezer",
+      "contentControlTitel": "Meelezer",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmvtRapporteur",
+      "contentControlTag": "ccvtRapporteur",
+      "contentControlTitel": "Rapporteur",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    },
+    {
+      "bookmarkName": "bmvZaakNummer",
+      "contentControlTag": "ccvZaakNummer",
+      "contentControlTitel": "ZaakNummer",
+      "contentControlEditable": true,
+      "contentControlRemovable": true
+    }
+  ]
+}

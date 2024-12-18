@@ -1,4 +1,4 @@
-import { useStyles } from "../styles/App.Styles"
+import { useStyles } from "../../../styles/App.Styles"
 import Header from "./Header";
 import Body from "./Body";
 
@@ -12,7 +12,7 @@ const App: React.FC<AppProps> = (props: AppProps) => {
 
   return (
       <div className={styles.root}>
-          <Header logo="assets/react.svg" title={props.title} message="Welcome" />
+          <Header logo="src/taskpane/assets/react.svg" title={props.title} message="Welcome" />
           <Body/>
     </div>
   )

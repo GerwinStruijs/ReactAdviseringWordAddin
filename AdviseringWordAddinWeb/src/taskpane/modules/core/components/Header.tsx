@@ -1,5 +1,5 @@
 ﻿import * as React from "react";
-import { useStyles } from "../styles/Header.Styles"
+import { useStyles } from "../../../styles/Header.Styles"
 import { Image } from "@fluentui/react-components";
 
 export interface HeaderProps {
