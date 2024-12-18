@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import documentConfig from '../../../config/DocumentConfig.json';
 import { getBookmarks } from '../utils/Document';
 
@@ -7,18 +7,18 @@ type InitialisationProps = unknown
 
 const Document: React.FC<InitialisationProps> = () => {
 
-    //useEffect
+    const [data, setData] = useState(0)
 
     const bookmarkMapper = documentConfig.bookmarkMapper;
 
-    let bookmarkLengt: number = 0;
-
-    getBookmarks(bookmarkMapper).then(bookmarks => {
-        bookmarkLengt = bookmarks.length;
+    useEffect(() => {
+        getBookmarks(bookmarkMapper).then(result => {
+            setData(result.length);
+        });
     });
 
   return (
-      <div>Found {bookmarkLengt} bookmarks</div>
+      <div>Found {data} bookmarks</div>
   );
 };
 

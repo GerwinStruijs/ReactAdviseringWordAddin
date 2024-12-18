@@ -1,9 +1,7 @@
 ﻿    import * as React from "react";
     import { useStyles } from "../../../styles/Body.Styles"
     import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, mergeClasses } from "@fluentui/react-components";
-    import TextInsertion from "../../document/components/TextInsertion";
     import Document from "../../document/components/Document";
-    import { insertText } from "../../document/components/insertText";
 
     export type BodyProps = unknown
 
