@@ -43,6 +43,7 @@
     <None Remove="src\taskpane\config\BookmarkMap.ts" />
     <None Remove="src\taskpane\insertText.ts" />
     <None Remove="src\taskpane\makeStyles.ts" />
+    <None Remove="src\taskpane\modules\document\utils\DocumentBookmark.ts" />
   </ItemGroup>
 
   <ItemGroup>

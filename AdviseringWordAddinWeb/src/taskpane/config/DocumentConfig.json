@@ -71,7 +71,7 @@
       "contentControlRemovable": true
     },
     {
-      "bookmarkName": "bmvZaakNummer",
+      "bookmarkName": "bmZaakNummer",
       "contentControlTag": "ccvZaakNummer",
       "contentControlTitel": "ZaakNummer",
       "contentControlEditable": true,

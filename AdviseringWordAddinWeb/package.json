@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "echo Starting the development server && vite",
-    "dev": "vite",
+    "dev": "vite --host --open",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
