@@ -2,23 +2,19 @@
 
 /**
  * Retrieves bookmarks from the document and updates the component state.
- * 
+ *
  * @param {bookmarkMap[]} bookmarkMapper - An array of bookmark maps.
  * @returns {Promise<Word.Range[]>} A promise that resolves to an array of Word.Range objects.
  */
 export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<string[]> {
-
     // Initialize an empty array to store the bookmarks
     let bookmarks: { bookmarkName: string, bookmakrRange: Word.Range }[] = []
 
     try {
-
         // Run the Word API to retrieve the bookmarks
         await Word.run(async (context) => {
-
             // Loop through the mapper to find the bookmarks
             bookmarkMapper.forEach(bookmarkMap => {
-
                 // Get the bookmark
                 const bookmarkRange: Word.Range = context.document.getBookmarkRangeOrNullObject(bookmarkMap.bookmarkName);
 
@@ -32,7 +28,6 @@ export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<strin
 
         // Filter out null objects
         bookmarks = bookmarks.filter(bookmark => bookmark.bookmakrRange.isNullObject !== true);
-
     } catch (error) {
         console.log("There was a error collecting the bookmarks, original error message: " + error);
     }
@@ -43,20 +38,16 @@ export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<strin
 
 /**
  * Retrieves bookmarks from the document and updates the component state.
- * 
+ *
  * @param {bookmarkMap[]} bookmarkMapper - An array of bookmark maps.
  * @returns {Promise<Word.Range[]>} A promise that resolves to an array of Word.Range objects.
  */
 export async function replaceBookmarks(bookmarks: string[], bookmarkMapper: bookmarkMap[]) {
-
     try {
-
         // Run the Word API to retrieve the bookmarks
         await Word.run(async (context) => {
-
             // Loop through the bookmarks
             bookmarks.forEach(bookmark => {
-
                 // Get the bookmark
                 const bookmarkRange: Word.Range = context.document.getBookmarkRange(bookmark);
 

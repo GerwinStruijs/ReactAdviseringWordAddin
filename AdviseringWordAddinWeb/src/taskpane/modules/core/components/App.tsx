@@ -7,15 +7,14 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = (props: AppProps) => {
+    const styles = useStyles();
 
-  const styles = useStyles();
-
-  return (
-      <div className={styles.root}>
-          <Header logo="src/taskpane/assets/react.svg" title={props.title} message="Welcome" />
-          <Body/>
-    </div>
-  )
+    return (
+        <div className={styles.root}>
+            <Header logo="src/taskpane/assets/react.svg" title={props.title} message="Welcome" />
+            <Body />
+        </div>
+    )
 }
 
 export default App

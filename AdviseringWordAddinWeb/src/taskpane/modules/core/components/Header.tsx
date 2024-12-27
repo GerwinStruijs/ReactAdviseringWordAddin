@@ -6,7 +6,6 @@ export interface HeaderProps {
     title: string;
     logo: string;
     message: string;
-
 }
 
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
