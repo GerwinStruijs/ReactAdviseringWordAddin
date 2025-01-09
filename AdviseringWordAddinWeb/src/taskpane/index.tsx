@@ -1,8 +1,6 @@
 import { FluentProvider, webLightTheme } from "@fluentui/react-components";
 import { createRoot } from 'react-dom/client';
-import documentConfig from './config/DocumentConfig.json';
 import App from './modules/core/components/App.tsx';
-import { getBookmarks, replaceBookmarks } from './modules/document/utils/Document.ts';
 
 const title = "Advisering Word Add-in";
 
@@ -22,12 +20,8 @@ Office.onReady((info) => {
         Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, onDocumentSelectionChanged);
     }
 
-    const bookmarkMapper = documentConfig.bookmarkMapper;
-
     function onDocumentSelectionChanged(eventArgs: Office.AddinCommands.Event) {
-        getBookmarks(bookmarkMapper).then(result => {
-            replaceBookmarks(result, bookmarkMapper);
-        });
+        
     }
 
     root?.render(

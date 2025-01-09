@@ -1,4 +1,5 @@
 ﻿import bookmarkMap from '../../../config/BookmarkMap';
+import propertyMap from "../../../config/PropertyMap";
 
 /**
  * Retrieves bookmarks from the document and updates the component state.
@@ -8,7 +9,7 @@
  */
 export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<string[]> {
     // Initialize an empty array to store the bookmarks
-    let bookmarks: { bookmarkName: string, bookmakrRange: Word.Range }[] = []
+    let bookmarks: { bookmarkName: string, bookmakrRange: Word.Range }[] = [];
 
     try {
         // Run the Word API to retrieve the bookmarks
@@ -73,4 +74,42 @@ export async function replaceBookmarks(bookmarks: string[], bookmarkMapper: book
     } catch (error) {
         console.log("There was a error replacing the bookmarks into contentcontrols, original error message: " + error);
     }
+}
+
+/**
+ * Retrieves custom properties from the document.
+ * 
+ * @param {propertyMap[]} propertiesMapper - An array of property maps.
+ * @returns {Promise<Word.CustomProperty[]>} A promise that resolves to an array of Word.CustomProperty objects.
+ */
+export async function getProperties(propertiesMapper: propertyMap[]): Promise<Word.CustomProperty[]> {
+
+    // Initialize an empty array to store the custom proprties
+    let properties: Word.CustomProperty[] = [];
+
+    try {
+        // Run the Word API to retrieve the customProperties
+        await Word.run(async (context) => {
+            // Loop through the mapper to find the proprties
+            propertiesMapper.forEach(propertyMap => {
+                // Get the custom property
+                const customProperty: Word.CustomProperty = context.document.properties.customProperties.getItemOrNullObject(propertyMap.documentPropertyTag);
+                //customProperty.load("key,type,value");
+
+                // Add the property to the array
+                properties.push(customProperty);
+            });
+
+            // Sync the context to ensure the changes are applied
+            await context.sync();
+        });
+
+        // Filter out null objects
+        properties = properties.filter(property => property.isNullObject !== true);
+    } catch (error) {
+        console.log("There was an error collecting the custom properties, original error message: " + error);
+    }
+
+    // Return the array of bookmarks
+    return properties;
 }

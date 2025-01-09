@@ -1,4 +1,46 @@
 {
+  "propertiesMapper": [
+    {
+      "documentPropertyName": "DocumentId",
+      "documentPropertyTag": "Doc_UUID"
+    },
+    {
+      "documentPropertyName": "DocIdItemGuid",
+      "documentPropertyTag": "_dlc_DocIdItemGuid"
+    },
+    {
+      "documentPropertyName": "ContentTypeId",
+      "documentPropertyTag": "ContentTypeId"
+    },
+    {
+      "documentPropertyName": "DictumLetter",
+      "documentPropertyTag": "dictum"
+    },
+    {
+      "documentPropertyName": "ProcesStap",
+      "documentPropertyTag": "processtap"
+    },
+    {
+      "documentPropertyName": "Onderdeel",
+      "documentPropertyTag": "onderdeel"
+    },
+    {
+      "documentPropertyName": "RedactioneleBijlage",
+      "documentPropertyTag": "RedactioneleBijlage"
+    },
+    {
+      "documentPropertyName": "TypeZaak",
+      "documentPropertyTag": "zaaktype"
+    },
+    {
+      "documentPropertyName": "Verbijzondering",
+      "documentPropertyTag": "verbijzondering"
+    },
+    {
+      "documentPropertyName": "ZaakNummer",
+      "documentPropertyTag": "zaaknummer"
+    }
+  ],
   "bookmarkMapper": [
     {
       "bookmarkName": "bmAanhef",

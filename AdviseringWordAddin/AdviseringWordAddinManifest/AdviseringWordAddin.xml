@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-	<Id>a5863fe5-538a-4436-ae7b-c1ed5e586e88</Id>
+	<Id>52ceb876-fa3b-425e-a1e4-4e128375abd7</Id>
 	<Version>1.0.0.0</Version>
 	<ProviderName>Raad van State</ProviderName>
 	<DefaultLocale>en-US</DefaultLocale>

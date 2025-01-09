@@ -43,7 +43,11 @@
     <None Remove="src\taskpane\config\BookmarkMap.ts" />
     <None Remove="src\taskpane\insertText.ts" />
     <None Remove="src\taskpane\makeStyles.ts" />
-    <None Remove="src\taskpane\modules\document\utils\DocumentBookmark.ts" />
+    <None Remove="src\taskpane\modules\core\components\MyAccordionItem.tsx" />
+    <None Remove="src\taskpane\modules\document\components\Document.tsx" />
+    <None Remove="src\taskpane\modules\document\components\DocumentContent.tsx" />
+    <None Remove="src\taskpane\modules\document\components\DocumentContentPart.tsx" />
+    <None Remove="src\taskpane\modules\document\components\DocumentData.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,6 +68,16 @@
     <Folder Include="src\taskpane\modules\document\lib\" />
     <Folder Include="src\taskpane\modules\document\services\" />
     <Folder Include="src\taskpane\modules\document\states\" />
+    <Folder Include="src\taskpane\modules\document\utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Update="src\taskpane\config\PropertyMap.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="src\taskpane\modules\document\components\Document.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

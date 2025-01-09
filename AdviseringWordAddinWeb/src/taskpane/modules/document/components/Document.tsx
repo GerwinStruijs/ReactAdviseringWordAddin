@@ -1,9 +1,11 @@
-type InitialisationProps = unknown
+﻿import React from "react";
+import DocumentContent from "./DocumentContent";
 
-const Document: React.FC<InitialisationProps> = () => {
-    return (
-        <div>Found 0 bookmarks</div>
-    );
+export type BodyProps = unknown
+
+const Document: React.FC<BodyProps> = () => {
+
+    return (<DocumentContent></DocumentContent>);
 };
 
 export default Document;
