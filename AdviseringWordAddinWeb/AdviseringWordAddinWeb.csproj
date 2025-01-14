@@ -14,40 +14,33 @@
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="%2a%2a\**" />
     <Compile Remove="src\commands\**" />
-    <Compile Remove="src\taskpane\components\**" />
-    <Compile Remove="src\taskpane\services\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="%2a%2a\**" />
     <Content Remove="src\commands\**" />
-    <Content Remove="src\taskpane\components\**" />
-    <Content Remove="src\taskpane\services\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="%2a%2a\**" />
     <EmbeddedResource Remove="src\commands\**" />
-    <EmbeddedResource Remove="src\taskpane\components\**" />
-    <EmbeddedResource Remove="src\taskpane\services\**" />
     <None Remove="%2a%2a\**" />
     <None Remove="src\commands\**" />
-    <None Remove="src\taskpane\components\**" />
-    <None Remove="src\taskpane\services\**" />
     <TypeScriptCompile Remove="%2a%2a\**" />
     <TypeScriptCompile Remove="src\commands\**" />
-    <TypeScriptCompile Remove="src\taskpane\components\**" />
-    <TypeScriptCompile Remove="src\taskpane\services\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="src\taskpane\config\BookmarkMap.ts" />
+    <None Remove="src\taskpane\components\common\IconComponent.tsx" />
+    <None Remove="src\taskpane\components\ContentItem.tsx" />
+    <None Remove="src\taskpane\components\ContentItemHeader.tsx" />
     <None Remove="src\taskpane\insertText.ts" />
     <None Remove="src\taskpane\makeStyles.ts" />
-    <None Remove="src\taskpane\modules\core\components\MyAccordionItem.tsx" />
-    <None Remove="src\taskpane\modules\document\components\Document.tsx" />
-    <None Remove="src\taskpane\modules\document\components\DocumentContent.tsx" />
-    <None Remove="src\taskpane\modules\document\components\DocumentContentPart.tsx" />
-    <None Remove="src\taskpane\modules\document\components\DocumentData.ts" />
+    <None Remove="src\taskpane\components\Content.tsx" />
+    <None Remove="src\taskpane\components\ContentControls.tsx" />
+    <None Remove="src\taskpane\components\Document.tsx" />
+    <None Remove="src\taskpane\components\DocumentData.ts" />
+    <None Remove="src\taskpane\components\Proprties.tsx" />
+    <None Remove="src\taskpane\utils\logger.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,24 +53,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\taskpane\modules\core\hooks\" />
-    <Folder Include="src\taskpane\modules\core\lib\" />
-    <Folder Include="src\taskpane\modules\core\services\" />
-    <Folder Include="src\taskpane\modules\core\utils\" />
-    <Folder Include="src\taskpane\modules\document\hooks\" />
-    <Folder Include="src\taskpane\modules\document\lib\" />
-    <Folder Include="src\taskpane\modules\document\services\" />
-    <Folder Include="src\taskpane\modules\document\states\" />
-    <Folder Include="src\taskpane\modules\document\utils\" />
+    <TypeScriptCompile Update="src\taskpane\components\common\ContentControls.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="src\taskpane\components\common\Proprties.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="src\taskpane\components\Document.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Update="src\taskpane\config\PropertyMap.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Update="src\taskpane\modules\document\components\Document.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <Folder Include="src\taskpane\components\specific\" />
+    <Folder Include="src\taskpane\contexts\" />
+    <Folder Include="src\taskpane\hooks\" />
+    <Folder Include="src\taskpane\services\" />
+    <Folder Include="src\taskpane\styles\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

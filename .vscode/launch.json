@@ -5,22 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
+            "name": "Start the development server",
             "request": "launch",
             "skipFiles": ["${workspaceFolder}/AdviserringWordAddinWeb/node_modules/**/*.js"],
             "type": "chrome",
             "preLaunchTask": "start",
-            "url": "http://localhost:5173/${relativeFileDirname}",
+            //"postDebugTask": "stop",
+            "url": "http://localhost:5173",
             "webRoot": "${workspaceFolder}",
-        },
-        {
-            "name": "Word Desktop (Edge Chromium)",
-            "type": "msedge",
-            "request": "attach",
-            "port": 9229,
-            "timeout": 600000,
-            "webRoot": "${workspaceRoot}",
-            "preLaunchTask": "Debug: Word Desktop",
         }
     ]
 }

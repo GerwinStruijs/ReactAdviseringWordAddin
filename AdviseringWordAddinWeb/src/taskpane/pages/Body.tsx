@@ -1,12 +1,12 @@
 ﻿import React from "react";
-import DocumentContent from "../../document/components/DocumentContent";
+import Content from "../components/layout/Content";
 
 export type BodyProps = unknown
 
 const Body: React.FC<BodyProps> = () => {
 
     return (
-        <DocumentContent></DocumentContent>
+        <Content></Content>
     );
 };
 

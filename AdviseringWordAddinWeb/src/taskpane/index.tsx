@@ -1,6 +1,6 @@
 import { FluentProvider, webLightTheme } from "@fluentui/react-components";
 import { createRoot } from 'react-dom/client';
-import App from './modules/core/components/App.tsx';
+import App from './App.tsx';
 
 const title = "Advisering Word Add-in";
 
@@ -9,13 +9,14 @@ const root = rootElement ? createRoot(rootElement) : undefined;
 
 /* Office onReady and initialize functions */
 Office.initialize = (reason) => {
-    console.log("Office initialized with reason: ", reason);
+
+    console.info("Office initialized with reason: ", reason);
     Office.addin.setStartupBehavior(Office.StartupBehavior.load);
 };
 
-/* Render application after Office initializes */
+/* Render application after Office initializes */ 
 Office.onReady((info) => {
-    console.log("Document onReady");
+    console.info("Document onReady");
     if (info.host === Office.HostType.Word) {
         Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, onDocumentSelectionChanged);
     }
@@ -30,3 +31,5 @@ Office.onReady((info) => {
         </FluentProvider>
     );
 });
+
+

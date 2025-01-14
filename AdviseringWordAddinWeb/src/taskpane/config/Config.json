@@ -1,18 +1,6 @@
 {
   "propertiesMapper": [
     {
-      "documentPropertyName": "DocumentId",
-      "documentPropertyTag": "Doc_UUID"
-    },
-    {
-      "documentPropertyName": "DocIdItemGuid",
-      "documentPropertyTag": "_dlc_DocIdItemGuid"
-    },
-    {
-      "documentPropertyName": "ContentTypeId",
-      "documentPropertyTag": "ContentTypeId"
-    },
-    {
       "documentPropertyName": "DictumLetter",
       "documentPropertyTag": "dictum"
     },
@@ -41,7 +29,7 @@
       "documentPropertyTag": "zaaknummer"
     }
   ],
-  "bookmarkMapper": [
+  "contentControlMapper": [
     {
       "bookmarkName": "bmAanhef",
       "contentControlTag": "ccAanhef",
