@@ -1,9 +1,11 @@
-﻿import { Accordion } from "@fluentui/react-components";
+﻿import React, { useCallback, useState } from "react";
+import { Accordion } from "@fluentui/react-components";
 import { makeStyles } from "@fluentui/react-components";
-import React, { useCallback, useState } from "react";
-import ContentItem from "./ContentItem";
-import Proprties from "../common/Proprties";
-import ContentControls from "../common/ContentControls";
+
+import ContentItem from "./contentItem";
+import WordProprtieList from "../common/wordProprtiesList";
+import WordControlList from "../common/wordControlList";
+import AdviesCaseList from "../common/adviesCaseList";
 
 const useStyles = makeStyles(
     {
@@ -27,21 +29,21 @@ const Content: React.FC<BodyProps> = () => {
                 <ContentItem
                 value={1}
                 title="Document properties"
-                content={<Proprties />}
+                content={<WordProprtieList />}
                 selectedItem={selectedItem}
                 onClick={handleAccordionItemClick}
                 />
                 <ContentItem
                 value={2}
                 title="Document content"
-                content={<ContentControls />}
+                content={<WordControlList />}
                 selectedItem={selectedItem}
                 onClick={handleAccordionItemClick}
                 />
                 <ContentItem
                 value={3}
                 title="Case details"
-                content={'Accordion Panel 3'}
+                content={<AdviesCaseList />}
                 selectedItem={selectedItem}
                 onClick={handleAccordionItemClick}
                 />

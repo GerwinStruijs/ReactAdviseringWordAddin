@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import ContentItemHeader from "./ContentItemHeader";
+import ContentItemHeader from "./contentItemHeader";
 import { AccordionItem, AccordionPanel } from "@fluentui/react-components";
 import { tokens, makeStyles } from "@fluentui/react-components";
 

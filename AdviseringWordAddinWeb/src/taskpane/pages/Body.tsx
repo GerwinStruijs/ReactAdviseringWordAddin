@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import Content from "../components/layout/Content";
+import Content from "../components/layout/content";
 
 export type BodyProps = unknown
 

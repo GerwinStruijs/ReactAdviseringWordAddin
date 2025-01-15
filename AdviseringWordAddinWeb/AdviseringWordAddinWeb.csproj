@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\taskpane\components\common\adviesCaseList.tsx" />
     <None Remove="src\taskpane\components\common\IconComponent.tsx" />
     <None Remove="src\taskpane\components\ContentItem.tsx" />
     <None Remove="src\taskpane\components\ContentItemHeader.tsx" />
@@ -38,8 +39,11 @@
     <None Remove="src\taskpane\components\Content.tsx" />
     <None Remove="src\taskpane\components\ContentControls.tsx" />
     <None Remove="src\taskpane\components\Document.tsx" />
-    <None Remove="src\taskpane\components\DocumentData.ts" />
     <None Remove="src\taskpane\components\Proprties.tsx" />
+    <None Remove="src\taskpane\services\CaseService.ts" />
+    <None Remove="src\taskpane\services\client.ts" />
+    <None Remove="src\taskpane\services\WordService.ts" />
+    <None Remove="src\taskpane\types\adviesCase.ts" />
     <None Remove="src\taskpane\utils\logger.ts" />
   </ItemGroup>
 
@@ -50,18 +54,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Update="src\taskpane\components\common\ContentControls.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Update="src\taskpane\components\common\Proprties.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Update="src\taskpane\components\Document.tsx">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
   </ItemGroup>
 
   <ItemGroup>

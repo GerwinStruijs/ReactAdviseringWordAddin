@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "react-axios": "^2.0.6",
     "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^2.1.0"
   }
 }

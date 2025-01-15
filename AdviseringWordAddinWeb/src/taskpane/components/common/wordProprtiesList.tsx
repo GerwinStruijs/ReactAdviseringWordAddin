@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState } from "react";
-import { getProperties } from "../DocumentData";
-import documentConfig from '../../config/Config.json';
+import { getProperties } from "../../api/wordDocument";
+import documentConfig from '../../config/config.json';
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
 
 const useStyles = makeStyles(
@@ -16,7 +16,7 @@ const useStyles = makeStyles(
     });
 
 export type BodyProps = unknown
-const Proprties: React.FC<BodyProps> = () => {
+const WordProprtieList: React.FC<BodyProps> = () => {
 
     const classes = useStyles();
 
@@ -54,4 +54,4 @@ const Proprties: React.FC<BodyProps> = () => {
     );
 };
 
-export default Proprties;
+export default WordProprtieList;

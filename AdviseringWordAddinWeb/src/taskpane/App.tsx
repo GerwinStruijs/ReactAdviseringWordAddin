@@ -1,5 +1,5 @@
-import Header from "./pages/Header";
-import Body from "./pages/Body";
+import Header from "./pages/header";
+import Body from "./pages/body";
 
 import { tokens, makeStyles } from "@fluentui/react-components";
 
