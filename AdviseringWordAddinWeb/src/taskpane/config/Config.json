@@ -1,11 +1,11 @@
 {
   "propertiesMapper": [
     {
-      "documentPropertyName": "DictumLetter",
+      "documentPropertyName": "Dictum",
       "documentPropertyTag": "dictum"
     },
     {
-      "documentPropertyName": "ProcesStap",
+      "documentPropertyName": "Processtap",
       "documentPropertyTag": "processtap"
     },
     {
@@ -13,11 +13,11 @@
       "documentPropertyTag": "onderdeel"
     },
     {
-      "documentPropertyName": "RedactioneleBijlage",
+      "documentPropertyName": "Redactionele bijlage",
       "documentPropertyTag": "RedactioneleBijlage"
     },
     {
-      "documentPropertyName": "TypeZaak",
+      "documentPropertyName": "Type zaak",
       "documentPropertyTag": "zaaktype"
     },
     {
@@ -25,7 +25,7 @@
       "documentPropertyTag": "verbijzondering"
     },
     {
-      "documentPropertyName": "ZaakNummer",
+      "documentPropertyName": "Zaaknummer",
       "documentPropertyTag": "zaaknummer"
     }
   ],

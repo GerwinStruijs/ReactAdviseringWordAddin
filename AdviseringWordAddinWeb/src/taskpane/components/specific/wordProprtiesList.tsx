@@ -1,7 +1,8 @@
 ﻿import { useEffect, useState } from "react";
-import { getProperties } from "../../api/wordDocument";
-import documentConfig from '../../config/config.json';
+import * as wordDocumentService from "../../services/wordDocument";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
+import { DocumentProperty } from "../../types/documentTypes";
+import { useErrorBoundary } from "react-error-boundary";
 
 const useStyles = makeStyles(
     {
@@ -20,16 +21,17 @@ const WordProprtieList: React.FC<BodyProps> = () => {
 
     const classes = useStyles();
 
-    const [properties, setProperties] = useState<Word.CustomProperty[]>([]);
+    const { showBoundary } = useErrorBoundary();
+
+    const [properties, setProperties] = useState<DocumentProperty[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
 
-            const result = await getProperties(documentConfig.propertiesMapper);
-            setProperties(result);
-        };
-
-        fetchData();
+        wordDocumentService.getCustomProperties()
+            .then((customProperties) => setProperties(customProperties))
+            .catch((error) => {
+                showBoundary(error);
+            });
     }, []);
 
     return (
@@ -37,13 +39,13 @@ const WordProprtieList: React.FC<BodyProps> = () => {
             <div>
                 <List className={classes.propertiesList} navigationMode="items">
                     {properties.map((property) => ( 
-                        <ListItem key={property.key}>
+                        <ListItem key={property.tag}>
                             <div className={classes.propertiesListItem}> 
                                 <div className={classes.propertiesListItemHeader}>
-                                    {property.key}
+                                    {property.name}
                                 </div>
                                 <div>
-                                    {property.value}
+                                    {property.property.value}
                                 </div>
                             </div>
                         </ListItem>

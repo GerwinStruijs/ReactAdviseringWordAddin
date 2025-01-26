@@ -7,13 +7,11 @@ const useStyles = makeStyles({
         flexDirection: "column",
         alignItems: "center",
         paddingBottom: "10px",
-        paddingTop: "10px",
-        //backgroundColor: tokens.colorNeutralBackground3,
+        paddingTop: "10px"
     },
     header_message: {
         fontSize: tokens.fontSizeHero700,
         fontWeight: tokens.fontWeightRegular,
-        //fontColor: tokens.colorNeutralBackgroundStatic,
     }
 });
 

@@ -1,7 +1,8 @@
 ﻿import { useEffect, useState } from "react";
-import { getBookmarks, getContentControls, replaceBookmarks } from "../../api/wordDocument";
-import documentConfig from '../../config/config.json';
+import * as wordDocumentService from "../../services/wordDocument";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
+import { DocumentControl } from "../../types/documentTypes";
+import { useErrorBoundary } from "react-error-boundary";
 
 const useStyles = makeStyles(
     {
@@ -20,23 +21,25 @@ const WordControlList: React.FC<BodyProps> = () => {
 
     const classes = useStyles();
 
-    const [contentControls, setContentControls] = useState<Word.ContentControl[]>([]);
+    const { showBoundary } = useErrorBoundary();
+
+    const [contentControls, setContentControls] = useState<DocumentControl[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
+        
+        //getBookmarks(documentConfig.contentControlMapper)
+        //    .then((bookmarks) => {
+        //        if (bookmarks.length !== 0) {
+        //            replaceBookmarks(bookmarks, documentConfig.contentControlMapper);
+        //        }
+        //    })
 
-            const bookmarks = await getBookmarks(documentConfig.contentControlMapper);
-            if (bookmarks.length !== 0) {
-                await replaceBookmarks(bookmarks, documentConfig.contentControlMapper);
-                console.info("Succesfully found and replaced {} bookmarks into content controls.", bookmarks.length, "replaceBookmarks");
-            }
-            
-            const contentControls = await getContentControls(documentConfig.contentControlMapper);
-            console.info("Succesfully found {} content controls", contentControls.length, "getContentControls");
-            setContentControls(contentControls);     
-        };
+        wordDocumentService.getContentControls()
+            .then((contentControls) => setContentControls(contentControls))
+            .catch((error) => {
+               showBoundary(error);
+            });
 
-        fetchData();
     }, []);
 
     return (<div>
@@ -47,10 +50,10 @@ const WordControlList: React.FC<BodyProps> = () => {
                         <ListItem key={contentControl.tag}>
                             <div className={classes.controlsListItem}>
                                 <div className={classes.controlsListItemHeader}>
-                                    {contentControl.title}
+                                    {contentControl.name}
                                 </div>
                                 <div>
-                                    {contentControl.text}
+                                    {contentControl.property.text}
                                 </div>
                             </div>
                         </ListItem>

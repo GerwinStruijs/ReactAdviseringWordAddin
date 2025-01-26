@@ -31,19 +31,26 @@
 
   <ItemGroup>
     <None Remove="src\taskpane\components\common\adviesCaseList.tsx" />
+    <None Remove="src\taskpane\components\common\ErrorFallback.tsx" />
     <None Remove="src\taskpane\components\common\IconComponent.tsx" />
     <None Remove="src\taskpane\components\ContentItem.tsx" />
     <None Remove="src\taskpane\components\ContentItemHeader.tsx" />
+    <None Remove="src\taskpane\config\config.ts" />
     <None Remove="src\taskpane\insertText.ts" />
     <None Remove="src\taskpane\makeStyles.ts" />
     <None Remove="src\taskpane\components\Content.tsx" />
     <None Remove="src\taskpane\components\ContentControls.tsx" />
     <None Remove="src\taskpane\components\Document.tsx" />
     <None Remove="src\taskpane\components\Proprties.tsx" />
+    <None Remove="src\taskpane\services\adviesCase.ts" />
     <None Remove="src\taskpane\services\CaseService.ts" />
     <None Remove="src\taskpane\services\client.ts" />
+    <None Remove="src\taskpane\services\wordDocument.ts" />
     <None Remove="src\taskpane\services\WordService.ts" />
-    <None Remove="src\taskpane\types\adviesCase.ts" />
+    <None Remove="src\taskpane\types\adviesCaseResponse.ts" />
+    <None Remove="src\taskpane\types\adviesCaseTypes.ts" />
+    <None Remove="src\taskpane\types\adviesEnums.ts" />
+    <None Remove="src\taskpane\types\adviesProces.ts" />
     <None Remove="src\taskpane\utils\logger.ts" />
   </ItemGroup>
 
@@ -57,11 +64,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\taskpane\components\specific\" />
     <Folder Include="src\taskpane\contexts\" />
     <Folder Include="src\taskpane\hooks\" />
-    <Folder Include="src\taskpane\services\" />
     <Folder Include="src\taskpane\styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Update="src\taskpane\types\documentTypes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

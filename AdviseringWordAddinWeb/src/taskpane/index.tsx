@@ -1,6 +1,7 @@
 import { FluentProvider, webLightTheme } from "@fluentui/react-components";
 import { createRoot } from 'react-dom/client';
 import App from './app.tsx';
+import React from "react";
 
 const title = "Advisering Word Add-in";
 

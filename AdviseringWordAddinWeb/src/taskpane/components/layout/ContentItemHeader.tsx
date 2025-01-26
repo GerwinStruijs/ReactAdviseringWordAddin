@@ -1,24 +1,30 @@
-﻿import React from "react";
-import { AccordionHeader, mergeClasses } from "@fluentui/react-components";
+﻿import React, { useState } from "react";
+import { AccordionHeader, FluentProvider, mergeClasses } from "@fluentui/react-components";
 import { makeStyles, tokens } from "@fluentui/react-components";
-import { AddSquareFilled } from "@fluentui/react-icons";
+import { ChevronUpRegular, ChevronDownRegular } from "@fluentui/react-icons";
 
 const useStyles = makeStyles({
     contentHeader: {
+        //borderRadius: tokens.borderRadiusMedium,
         backgroundColor: tokens.colorNeutralBackground5,
         '&:hover': {
             cursor: 'pointer',
-            backgroundColor: tokens.colorNeutralBackground3Selected,
         },
         display: "flex",
-        columnGap: "20px"
+        columnGap: "20px",
     },
-    contentHeaderChecked: {
-        backgroundColor: tokens.colorNeutralBackground3Selected,
+    contentHeaderIcon: {
+        width: "25px",
+        height: "25px",
+        padding: "10px",
         '&:hover': {
-            cursor: 'pointer',
-            backgroundColor: tokens.colorNeutralBackground3Selected,
-        }
+            backgroundColor: tokens.colorBrandBackgroundSelected,
+            color: "white"
+        },
+    },
+    contentHeaderIconExpanded: {
+        backgroundColor: tokens.colorBrandBackgroundSelected,
+        color: "white",
     },
     contentHeaderLayout: {
         display: "flex",
@@ -31,19 +37,30 @@ const useStyles = makeStyles({
 
 interface ContentItemHeaderProps {
     title: string;
-    isSelected: boolean;
+    isExpanded: boolean;
 }
 
-const ContentItemHeader: React.FC<ContentItemHeaderProps> = ({ title, isSelected }) => {
+const ContentItemHeader: React.FC<ContentItemHeaderProps> = ({ title, isExpanded }) => {
     const classes = useStyles();
 
-    return (
-        <AccordionHeader expandIcon={<AddSquareFilled color={tokens.colorBrandBackground} /> } expandIconPosition="end" className={mergeClasses(classes.contentHeader, isSelected && classes.contentHeaderChecked)}>
-            <div className={classes.contentHeaderLayout}>
-                <h4>{title}</h4>
+    const [hover, setHover] = useState<boolean>(false);
 
-            </div>
-        </AccordionHeader>
+    return (
+        <FluentProvider theme={{
+            spacingHorizontalMNudge: "0px",
+            spacingHorizontalS: "0px",
+        }}>
+            <AccordionHeader
+                expandIcon={isExpanded ?
+                    <ChevronDownRegular className={mergeClasses(classes.contentHeaderIcon, classes.contentHeaderIconExpanded)} /> :
+                    <ChevronUpRegular className={mergeClasses(classes.contentHeaderIcon, hover && classes.contentHeaderIconExpanded)} />}
+                expandIconPosition="end"
+                className={classes.contentHeader} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+                <div className={classes.contentHeaderLayout}>
+                    {title}
+                </div>
+            </AccordionHeader>
+        </FluentProvider>
     );
 };
 

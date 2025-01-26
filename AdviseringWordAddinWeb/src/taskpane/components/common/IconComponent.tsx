@@ -1,24 +1,37 @@
-﻿import React, { FC } from 'react';
-import {
-    CheckboxIndeterminate20Filled,
-    CheckboxChecked20Filled
-} from '@fluentui/react-icons';
+﻿import React from 'react';
+import { makeStyles, tokens, ChevronDownRegular,ChevronUpRegular } from '@fluentui/react-icons';
+
+const useStyles = makeStyles({
+
+    contentHeaderIcon: {
+        //fontSize: "40px",
+        '&:hover': {
+            backgroundColor: tokens.colorBrandBackgroundSelected,
+            color: "white"
+        }
+    },
+    contentHeaderIconChecked: {
+        //fontSize: "40px",
+        backgroundColor: tokens.colorBrandBackground
+    }
+});
 
 interface IconProps {
-    status: string;
+    selected: boolean;
 }
 
-const IconComponent: FC<IconProps> = ({ status }) => {
-    switch (status) {
-        case 'SUCCESS':
-            return <CheckboxChecked20Filled color="green" />;
-        case 'FAILURE':
-            return <CheckboxChecked20Filled color="red"/>;
-        case 'WARNING':
-            return <CheckboxChecked20Filled color="orange"/>;
-        default:
-            return <CheckboxIndeterminate20Filled />;
-    }
+const IconComponent: React.FC<IconProps> = ({ selected }) => {
+
+    const classes = useStyles();
+
+    return (<ChevronDownRegular/>);
+
+    //if (selected) {
+    //    return <ChevronDownRegular className={classes.contentHeaderIconChecked } />;
+    //}
+    //else {
+    //    return <ChevronUpRegular className={classes.contentHeaderIcon} />;
+    //}
 };
 
 export default IconComponent;

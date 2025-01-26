@@ -1,39 +1,39 @@
-﻿import React from "react";
+﻿"use client";
+import React, { useState } from "react";
 import ContentItemHeader from "./contentItemHeader";
 import { AccordionItem, AccordionPanel } from "@fluentui/react-components";
-import { tokens, makeStyles } from "@fluentui/react-components";
+import { makeStyles } from "@fluentui/react-components";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../common/errorFallback";
+import { logErrorToService } from "../../utils/logger";
 
 const useStyles = makeStyles({
 
     ContentItem: {
         padding: '10px',
-        //border: '1px solid gray',
     },
     contentItemPanel: {
         marginLeft: '0px',
         marginRight: '0px',
-        //backgroundColor: tokens.colorNeutralBackground5
     }
 
 });
 
-interface ContentItemProps {
-    value: number;
-    title: string;
-    content: React.ReactNode;
-    selectedItem: number;
-    onClick: (value: number) => void;
-}
 
-const ContentItem: React.FC<ContentItemProps> = ({ value, title, content, selectedItem, onClick }) => {
+interface ContentItemProps { index: number; title: string; content: React.ReactNode; }
+const ContentItem: React.FC<ContentItemProps> = ({ index, title, content }) => {
 
     const classes = useStyles();
 
+    const [expaned, setExpaned] = useState<boolean>(false);
+
     return (
-        <AccordionItem className={classes.ContentItem} value={value.toString()} onClick={() => onClick(value)}>
-            <ContentItemHeader title={title} isSelected={selectedItem === value} />
+        <AccordionItem className={classes.ContentItem} value={index.toString()} onClick={() => setExpaned(!expaned)}>
+            <ContentItemHeader title={title} isExpanded={expaned} />
             <AccordionPanel className={classes.contentItemPanel}>
-               {content}
+                <ErrorBoundary FallbackComponent={ErrorFallback} onError={logErrorToService}>
+                    {content}
+                </ErrorBoundary>
             </AccordionPanel>
         </AccordionItem>
     );
