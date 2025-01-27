@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "echo Starting the development server && vite",
+    "debug": "office-addin-debugging start AdviseringWordAddin.xml",
     "dev": "vite --host --open",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -14,10 +15,12 @@
     "@fluentui/react-components": "^9.57.0",
     "@fluentui/react-icons": "^2.0.232",
     "@microsoft/office-js": "^1.1.99",
+    "axios": "^1.7.9",
     "core-js": "^3.36.0",
     "es6-promise": "^4.2.8",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-error-boundary": "^5.0.0",
     "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
@@ -27,6 +30,7 @@
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
+    "axios-mock-adapter": "^2.1.0",
     "eslint": "^9.11.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",

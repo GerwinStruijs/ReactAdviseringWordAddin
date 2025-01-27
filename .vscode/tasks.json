@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "start",
+      "label": "start development server",
       "type": "npm",
       "script": "start",
       "path": "AdviseringWordAddinWeb",
@@ -30,11 +30,11 @@
       ]
     },
     {
-      "label": "stop",
+      "label": "start debug word addin",
       "type": "npm",
-      "script": "stop",
+      "script": "start",
       "path": "AdviseringWordAddinWeb",
-      "detail": "echo Stopping the development server && vite",
+      "detail": "echo Starting the development server && vite",
       "isBackground": true,
       // This task is run before some debug tasks.
       // Problem is, it's a watch script, and since it never exits, VSCode
@@ -56,18 +56,6 @@
           }
         }
       ]
-    },
-    {
-      "label": "Debug: Word Desktop",
-      "type": "shell",
-      "command": "npm",
-      "args": ["--prefix ./AdviseringWordAddinWeb run", 
-              "office-addin-debugging start ..\\AdviseringWordAddin\\AdviseringWordAddinManifest\\AdviseringWordAddin.xml desktop"],
-      "presentation": {
-        "clear": true,
-        "panel": "dedicated"
-      },
-      "problemMatcher": []
     }
   ]
 }

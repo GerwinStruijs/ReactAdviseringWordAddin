@@ -5,12 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Start the development server",
+            "name": "Start the development server and debug word addin",
             "request": "launch",
             "skipFiles": ["${workspaceFolder}/AdviserringWordAddinWeb/node_modules/**/*.js"],
             "type": "chrome",
-            "preLaunchTask": "start",
-            //"postDebugTask": "stop",
+            "preLaunchTask": "start debug word addin",
             "url": "http://localhost:5173",
             "webRoot": "${workspaceFolder}",
         }

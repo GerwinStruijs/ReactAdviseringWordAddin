@@ -8,7 +8,6 @@ import ErrorFallback from "../common/errorFallback";
 import { logErrorToService } from "../../utils/logger";
 
 const useStyles = makeStyles({
-
     ContentItem: {
         padding: '10px',
     },
@@ -16,13 +15,10 @@ const useStyles = makeStyles({
         marginLeft: '0px',
         marginRight: '0px',
     }
-
 });
-
 
 interface ContentItemProps { index: number; title: string; content: React.ReactNode; }
 const ContentItem: React.FC<ContentItemProps> = ({ index, title, content }) => {
-
     const classes = useStyles();
 
     const [expaned, setExpaned] = useState<boolean>(false);
