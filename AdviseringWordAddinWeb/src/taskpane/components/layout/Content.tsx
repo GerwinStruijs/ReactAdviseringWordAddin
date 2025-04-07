@@ -13,8 +13,7 @@ const useStyles = makeStyles(
         }
     });
 
-export type BodyProps = unknown
-const Content: React.FC<BodyProps> = () => {
+export default function Content() {
 
     const classes = useStyles();
 
@@ -38,4 +37,3 @@ const Content: React.FC<BodyProps> = () => {
     );
 };
 
-export default Content;

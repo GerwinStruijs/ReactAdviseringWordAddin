@@ -1,13 +1,13 @@
-﻿import React from "react";
+﻿//import React, { lazy, Suspense } from "react";
 import Content from "../components/layout/content";
 
-export type BodyProps = unknown
+//const Content = lazy(() => import('../components/layout/content'));
 
-const Body: React.FC<BodyProps> = () => {
+export default function Body() {
 
     return (
-        <Content></Content>
+        //<Suspense fallback={<p>Loading data...</p>}>
+            <Content></Content>
+        //</Suspense>
     );
 };
-
-export default Body;

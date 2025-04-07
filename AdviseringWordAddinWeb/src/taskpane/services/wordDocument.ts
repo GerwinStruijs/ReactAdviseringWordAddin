@@ -2,6 +2,24 @@
 import * as wordDocumentApi from "../api/wordDocument";
 import * as documentTypes from '../types/documentTypes';
 
+//import { OfficeMockObject } from "office-addin-mock";
+
+//const MockData = {
+//    context: {
+//        workbook: {
+//            range: {
+//                address: "G4",
+//                format: {
+//                    fill: {},
+//                },
+//            },
+//            getSelectedRange: function () {
+//                return this.range;
+//            },
+//        },
+//    }
+//};
+
 /**
  * Function to get custom properties from the Word document
  * @returns {Promise<DocumentProperty[]>} - Array of custom properties
@@ -23,6 +41,16 @@ export async function getCustomProperties(): Promise<documentTypes.DocumentPrope
     console.info(`Succesfully 'procesed' ${customProperties.length} custom proprties.`, "getCustomProperties");
     return customProperties;
 }
+
+//describe(`getCustomProperties`, function () {
+//    it("Word", async function () {
+//        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//        const wordMock = new OfficeMockObject(MockData) as any;
+//        global.Word = wordMock;
+//        await getCustomProperties();
+//        //assert.strictEqual(excelMock.context.workbook.range.format.fill.color, "yellow");
+//    });
+//});
 
 /**
  * Function to get content controls from the Word document

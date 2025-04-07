@@ -16,8 +16,7 @@ const useStyles = makeStyles(
         },
     });
 
-export type BodyProps = unknown
-const WordControlList: React.FC<BodyProps> = () => {
+export default function WordControlList() {
 
     const classes = useStyles();
 
@@ -27,13 +26,6 @@ const WordControlList: React.FC<BodyProps> = () => {
 
     useEffect(() => {
         
-        //getBookmarks(documentConfig.contentControlMapper)
-        //    .then((bookmarks) => {
-        //        if (bookmarks.length !== 0) {
-        //            replaceBookmarks(bookmarks, documentConfig.contentControlMapper);
-        //        }
-        //    })
-
         wordDocumentService.getContentControls()
             .then((contentControls) => setContentControls(contentControls))
             .catch((error) => {
@@ -63,5 +55,3 @@ const WordControlList: React.FC<BodyProps> = () => {
         </div>
     </div>);
 };
-
-export default WordControlList;

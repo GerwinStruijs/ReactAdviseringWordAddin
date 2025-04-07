@@ -1,7 +1,10 @@
 import Header from "./pages/header";
-import Body from "./pages/body";
+//import Body from "./pages/body";
 
 import { tokens, makeStyles } from "@fluentui/react-components";
+import { Suspense } from "react";
+import React from "react";
+import Body from "./pages/body";
 
 const useStyles = makeStyles({
     root: {

@@ -69,6 +69,7 @@ export async function getContentControls(contentControlMapper: contentControlMap
  * @returns {Promise<Word.CustomProperty[]>} A promise that resolves to an array of Word.CustomProperty objects.
  */
 export async function getProperties(propertiesMapper: propertyMap[]): Promise<Word.CustomProperty[]> {
+
     // Initialize an empty array to store the custom proprties
     let customProperties: Word.CustomProperty[] = [];
 

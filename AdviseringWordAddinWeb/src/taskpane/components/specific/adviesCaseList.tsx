@@ -5,36 +5,51 @@ import * as adviesCaseTypes from "../../types/adviesCaseTypes";
 import { useErrorBoundary } from "react-error-boundary";
 
 const useStyles = makeStyles(
-    {
-        properties: {
-            padding: '10px',
-        },
-        propertiesList: {},
-        propertiesListItem: { padding: '5px' },
-        propertiesListItemHeader: {
-            fontWeight: '500'
-        },
-    });
+{
+    properties: {
+        padding: '10px',
+    },
+    propertiesList: {},
+    propertiesListItem: { padding: '5px' },
+    propertiesListItemHeader: {
+        fontWeight: '500'
+    },
+});
 
-export type BodyProps = unknown
-const AdviesCaseList: React.FC<BodyProps> = () => {
+let fullfilled = false;
+let promise: Promise<void> | null = null;
+const useTimeout = (ms: number) => {
+    if (!fullfilled) {
+        throw promise ||= new Promise((res) => {
+            setTimeout(() => {
+                fullfilled = true;
+                res();
+            }, ms);
+        });
+    }
+};
+
+//https://hygraph.com/blog/react-suspense
+//https://dev.to/smitterhane/swap-out-useeffect-with-suspense-for-data-fetching-in-react-2leb
+export default function AdviesCaseList() {
 
     const classes = useStyles();
 
     const { showBoundary } = useErrorBoundary();
 
     const [adviesCaseProperties, setAdviesCaseProperties] = useState<adviesCaseTypes.AdviesCaseProperty[]>([]);
-
+    
     useEffect(() => {
-
         adviesCaseService.getAdviesCaseProperties("W01.01.00001")
             .then((adviesCaseProperties) => {
                 setAdviesCaseProperties(adviesCaseProperties)
             })
             .catch((error) => showBoundary(error));
+            //.finally(() => { fullfilled = false; });
     }, []);
 
-   
+    useTimeout(2000);
+
     return (
         <div className={classes.properties}>
             <div>
@@ -56,5 +71,3 @@ const AdviesCaseList: React.FC<BodyProps> = () => {
         </div>
     );
 };
-
-export default AdviesCaseList;

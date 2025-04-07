@@ -16,8 +16,7 @@ const useStyles = makeStyles(
         },
     });
 
-export type BodyProps = unknown
-const WordProprtieList: React.FC<BodyProps> = () => {
+export default function WordProprtieList() {
 
     const classes = useStyles();
 
@@ -55,5 +54,3 @@ const WordProprtieList: React.FC<BodyProps> = () => {
         </div>
     );
 };
-
-export default WordProprtieList;
