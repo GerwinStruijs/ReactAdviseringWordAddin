@@ -1,54 +1,30 @@
-﻿import { useEffect, useState } from "react";
-import { makeStyles, List, ListItem } from "@fluentui/react-components";
+﻿import { makeStyles, List, ListItem } from "@fluentui/react-components";
 import * as adviesCaseService from "../../services/adviesCase";
 import * as adviesCaseTypes from "../../types/adviesCaseTypes";
-import { useErrorBoundary } from "react-error-boundary";
+
+import { promiseWrapper } from "../../utils/promiseWrapper";
 
 const useStyles = makeStyles(
-{
-    properties: {
-        padding: '10px',
-    },
-    propertiesList: {},
-    propertiesListItem: { padding: '5px' },
-    propertiesListItemHeader: {
-        fontWeight: '500'
-    },
-});
+    {
+        properties: {
+            padding: '10px',
+        },
+        propertiesList: {},
+        propertiesListItem: { padding: '5px' },
+        propertiesListItemHeader: {
+            fontWeight: '500'
+        },
+    });
 
-let fullfilled = false;
-let promise: Promise<void> | null = null;
-const useTimeout = (ms: number) => {
-    if (!fullfilled) {
-        throw promise ||= new Promise((res) => {
-            setTimeout(() => {
-                fullfilled = true;
-                res();
-            }, ms);
-        });
-    }
-};
+const adviesCasePropertiesResource = promiseWrapper(
+    adviesCaseService.getAdviesCaseProperties("W01.01.00001")
+);
 
-//https://hygraph.com/blog/react-suspense
-//https://dev.to/smitterhane/swap-out-useeffect-with-suspense-for-data-fetching-in-react-2leb
 export default function AdviesCaseList() {
 
     const classes = useStyles();
 
-    const { showBoundary } = useErrorBoundary();
-
-    const [adviesCaseProperties, setAdviesCaseProperties] = useState<adviesCaseTypes.AdviesCaseProperty[]>([]);
-    
-    useEffect(() => {
-        adviesCaseService.getAdviesCaseProperties("W01.01.00001")
-            .then((adviesCaseProperties) => {
-                setAdviesCaseProperties(adviesCaseProperties)
-            })
-            .catch((error) => showBoundary(error));
-            //.finally(() => { fullfilled = false; });
-    }, []);
-
-    useTimeout(2000);
+    const adviesCaseProperties: adviesCaseTypes.AdviesCaseProperty[] = adviesCasePropertiesResource.read();
 
     return (
         <div className={classes.properties}>

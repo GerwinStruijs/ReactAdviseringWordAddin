@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     }
 });
 
-//https://stackoverflow.com/questions/64251098/understanding-suspense-and-react-hooks
 export default function ContentItem({ index, title, content }) {
 
     const classes = useStyles();

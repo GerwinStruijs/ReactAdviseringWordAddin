@@ -57,6 +57,7 @@
     <None Remove="src\taskpane\types\adviesEnums.ts" />
     <None Remove="src\taskpane\types\adviesProces.ts" />
     <None Remove="src\taskpane\utils\logger.ts" />
+    <None Remove="src\taskpane\utils\promiseWrapper.ts" />
   </ItemGroup>
 
   <ItemGroup>

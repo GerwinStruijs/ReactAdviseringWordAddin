@@ -5,7 +5,7 @@ export const apiClient = axios.create({
     baseURL: '/api',
 });
 
-const adapter = new MockAdapter(apiClient, { delayResponse: 1000 });
+const adapter = new MockAdapter(apiClient, { delayResponse: 5000 });
 
 adapter.onGet('/case/W01.01.00001').reply(200, {
     data: {
