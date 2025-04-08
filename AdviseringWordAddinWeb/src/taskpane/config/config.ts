@@ -1,6 +1,6 @@
 ﻿export interface propertyMap {
-    documentPropertyName: string,
-    documentPropertyTag: string
+    customPropertyName: string,
+    customPropertyTag: string
 }
 
 export interface bookmarkMap {

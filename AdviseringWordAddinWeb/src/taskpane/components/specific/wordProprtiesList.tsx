@@ -1,43 +1,35 @@
-﻿import { useEffect, useState } from "react";
-import * as wordDocumentService from "../../services/wordDocument";
+﻿import * as wordDocumentService from "../../services/wordDocument";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
-import { DocumentProperty } from "../../types/documentTypes";
-import { useErrorBoundary } from "react-error-boundary";
+import * as documentTypes from "../../types/documentTypes";
+import { promiseWrapper } from "../../utils/promiseWrapper";
 
 const useStyles = makeStyles(
-    {
-        properties: {
-            padding: '10px',
-        },
-        propertiesList: {},
-        propertiesListItem: { padding: '5px' },
-        propertiesListItemHeader: {
-            fontWeight: '500'
-        },
-    });
+{
+    properties: {
+        padding: '10px',
+    },
+    propertiesList: {},
+    propertiesListItem: { padding: '5px' },
+    propertiesListItemHeader: {
+        fontWeight: '500'
+    },
+});
+
+const customPropertiesResource = promiseWrapper(
+    wordDocumentService.getCustomProperties()
+);
 
 export default function WordProprtieList() {
 
     const classes = useStyles();
 
-    const { showBoundary } = useErrorBoundary();
-
-    const [properties, setProperties] = useState<DocumentProperty[]>([]);
-
-    useEffect(() => {
-
-        wordDocumentService.getCustomProperties()
-            .then((customProperties) => setProperties(customProperties))
-            .catch((error) => {
-                showBoundary(error);
-            });
-    }, []);
+    const customProperties : documentTypes.CustomProperty[] = customPropertiesResource.read();
 
     return (
         <div className={classes.properties}>
             <div>
                 <List className={classes.propertiesList} navigationMode="items">
-                    {properties.map((property) => ( 
+                    {customProperties.map((property) => ( 
                         <ListItem key={property.tag}>
                             <div className={classes.propertiesListItem}> 
                                 <div className={classes.propertiesListItemHeader}>

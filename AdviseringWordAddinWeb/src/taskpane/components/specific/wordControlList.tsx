@@ -1,38 +1,29 @@
-﻿import { useEffect, useState } from "react";
-import * as wordDocumentService from "../../services/wordDocument";
+﻿import * as wordDocumentService from "../../services/wordDocument";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
-import { DocumentControl } from "../../types/documentTypes";
-import { useErrorBoundary } from "react-error-boundary";
+import * as documentTypes from "../../types/documentTypes";
+import { promiseWrapper } from "../../utils/promiseWrapper";
 
 const useStyles = makeStyles(
-    {
-        controls: {
-            padding: '10px',
-        },
-        controlsList: {},
-        controlsListItem: { padding: '5px' },
-        controlsListItemHeader: {
-            fontWeight: '500'
-        },
-    });
+{
+    controls: {
+        padding: '10px',
+    },
+    controlsList: {},
+    controlsListItem: { padding: '5px' },
+    controlsListItemHeader: {
+        fontWeight: '500'
+    },
+});
+
+const contentControlsResource = promiseWrapper(
+    wordDocumentService.getContentControls()
+);
 
 export default function WordControlList() {
 
     const classes = useStyles();
 
-    const { showBoundary } = useErrorBoundary();
-
-    const [contentControls, setContentControls] = useState<DocumentControl[]>([]);
-
-    useEffect(() => {
-        
-        wordDocumentService.getContentControls()
-            .then((contentControls) => setContentControls(contentControls))
-            .catch((error) => {
-               showBoundary(error);
-            });
-
-    }, []);
+    const contentControls: documentTypes.ContentControl[] = contentControlsResource.read();
 
     return (<div>
         <div className={classes.controls}>

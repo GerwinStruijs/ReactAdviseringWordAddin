@@ -54,15 +54,15 @@ export async function getCustomProperties(): Promise<documentTypes.DocumentPrope
 
 /**
  * Function to get content controls from the Word document
- * @returns {Promise<DocumentControl[]>} - Array of content controls
+ * @returns {Promise<ContentControl[]>} - Array of content controls
  */
-export async function getContentControls(): Promise<documentTypes.DocumentControl[]> {
+export async function getContentControls(): Promise<documentTypes.ContentControl[]> {
 
     // Fetch content controls using the API
     const contentControlArray = await wordDocumentApi.getContentControls(documentConfig.contentControlMapper);
 
     // Map the content controls to the document controls format
-    const documentControls = contentControlArray.map(contentControl => {
+    const contentControls = contentControlArray.map(contentControl => {
         const contentControlMap = documentConfig.contentControlMapper.find(contentControlMap => contentControlMap.contentControlTag === contentControl.tag);
         if (!contentControlMap) {
             throw new Error(`Content control map not found for content control: ${contentControl.tag}.`);
@@ -70,6 +70,6 @@ export async function getContentControls(): Promise<documentTypes.DocumentContro
         return { name: contentControlMap.contentControlTitel, tag: contentControl.tag, property: contentControl };
     });
 
-    console.info(`Succesfully 'procesed' ${documentControls.length} content controls.`, "getContentControls");
-    return documentControls;
+    console.info(`Succesfully 'procesed' ${contentControls.length} content controls.`, "getContentControls");
+    return contentControls;
 }

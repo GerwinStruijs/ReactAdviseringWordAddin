@@ -1,10 +1,10 @@
-﻿export interface DocumentProperty {
+﻿export interface CustomProperty {
     name: string,
     tag: string,
     property: Word.CustomProperty
 }
 
-export interface DocumentControl {
+export interface ContentControl {
     name: string,
     tag: string,
     property: Word.ContentControl
