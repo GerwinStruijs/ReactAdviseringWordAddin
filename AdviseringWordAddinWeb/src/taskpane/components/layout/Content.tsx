@@ -2,9 +2,8 @@
 import { makeStyles } from "@fluentui/react-components";
 
 import ContentItem from "./contentItem";
-import WordProprtieList from "../specific/wordProprtiesList";
+import { lazy } from "react";
 import WordControlList from "../specific/wordControlList";
-import AdviesCaseList from "../specific/adviesCaseList";
 
 const useStyles = makeStyles(
     {
@@ -17,19 +16,29 @@ export default function Content() {
 
     const classes = useStyles();
 
+    const UserDataList = lazy(() => import("../specific/userDataList"));
+    const WordPropertiesList = lazy(() => import("../specific/wordPropertiesList"));
+    //const WordControlList = lazy(() => import("../specific/wordControlList"));
+    const AdviesCaseList = lazy(() => import("../specific/adviesCaseList"));
+
     return (<Accordion className={classes.accordion} multiple collapsible>
                 <ContentItem
                 index={1}
-                title="Document properties"
-                content={<WordProprtieList />}
+                title="User data "
+                content={<UserDataList />}
                 />
                 <ContentItem
                 index={2}
-                title="Document content"
-                content={<WordControlList />}
+                title="Document properties"
+                content={<WordPropertiesList />}
                 />
                 <ContentItem
                 index={3}
+                title="Document content"
+            content={<WordControlList />}
+                />
+                <ContentItem
+                index={4}
                 title="Case details"
                 content={<AdviesCaseList />}
                 />

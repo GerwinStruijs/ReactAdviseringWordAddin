@@ -31,7 +31,7 @@ export default function ContentItem({ index, title, content }) {
         <AccordionItem className={classes.ContentItem} value={index.toString()} onClick={() => setExpaned(!expaned)}>
             <ContentItemHeader title={title} isExpanded={expaned} />
             <AccordionPanel className={classes.contentItemPanel}>
-                <Suspense fallback={<div className={classes.contentItemPanelLoader}><Spinner/></div>}>
+                <Suspense fallback={<div className={classes.contentItemPanelLoader}><Spinner size="medium" label="Loading..." /></div>}>
                     <ErrorBoundary FallbackComponent={ErrorFallback} onError={logErrorToService}>
                         {content}
                     </ErrorBoundary>

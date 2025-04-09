@@ -1,32 +1,32 @@
 {
   "propertiesMapper": [
     {
-      "documentPropertyName": "Dictum",
-      "documentPropertyTag": "dictum"
+      "customPropertyName": "Dictum",
+      "customPropertyTag": "dictum"
     },
     {
-      "documentPropertyName": "Processtap",
-      "documentPropertyTag": "processtap"
+      "customPropertyName": "Processtap",
+      "customPropertyTag": "processtap"
     },
     {
-      "documentPropertyName": "Onderdeel",
-      "documentPropertyTag": "onderdeel"
+      "customPropertyName": "Onderdeel",
+      "customPropertyTag": "onderdeel"
     },
     {
-      "documentPropertyName": "Redactionele bijlage",
-      "documentPropertyTag": "RedactioneleBijlage"
+      "customPropertyName": "Redactionele bijlage",
+      "customPropertyTag": "RedactioneleBijlage"
     },
     {
-      "documentPropertyName": "Type zaak",
-      "documentPropertyTag": "zaaktype"
+      "customPropertyName": "Type zaak",
+      "customPropertyTag": "zaaktype"
     },
     {
-      "documentPropertyName": "Verbijzondering",
-      "documentPropertyTag": "verbijzondering"
+      "customPropertyName": "Verbijzondering",
+      "customPropertyTag": "verbijzondering"
     },
     {
-      "documentPropertyName": "Zaaknummer",
-      "documentPropertyTag": "zaaknummer"
+      "customPropertyName": "Zaaknummer",
+      "customPropertyTag": "zaaknummer"
     }
   ],
   "contentControlMapper": [

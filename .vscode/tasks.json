@@ -30,7 +30,7 @@
       ],
       "dependsOn": ["start debug word addin"]
     },
-    {
+    { 
       "label": "start debug word addin",
       "type": "npm",
       "script": "debug",

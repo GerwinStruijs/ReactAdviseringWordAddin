@@ -13,7 +13,7 @@ const useStyles = makeStyles(
     controlsListItemHeader: {
         fontWeight: '500'
     },
-});
+    });
 
 const contentControlsResource = promiseWrapper(
     wordDocumentService.getContentControls()

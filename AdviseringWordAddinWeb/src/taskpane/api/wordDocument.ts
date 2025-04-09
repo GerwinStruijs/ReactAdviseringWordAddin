@@ -35,31 +35,38 @@ export async function replaceBookmarks(bookmarks: string[], contentControlMapper
     });
 }
 
-export async function getContentControls(contentControlMapper: contentControlMap[]): Promise<Word.ContentControl[]> {
-    // Initialize an empty array to store the content controls
-    let contentControls: Word.ContentControl[] = [];
+/**
+ * Retrieves bookmarks from the document and updates the component state.
+ *
+ * @param {bookmarkMap[]} bookmarkMapper - An array of bookmark maps.
+ * @returns {Promise<string[]>} A promise that resolves to an array of bookmark names.
+ */
+export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<string[]> {
+    // Initialize an empty array to store the bookmarks
+    let bookmarks: { bookmarkName: string; bookmarkRange: Word.Range; }[] = [];
 
-    // Run the Word API to retrieve the content controls
+    // Run the Word API to retrieve the bookmarks
     await Word.run(async (context) => {
-        // Loop through the content controls
-        contentControlMapper.forEach(contentControlMap => {
-            // Get the content contro
-            const contentControl: Word.ContentControl = context.document.contentControls.getByTag(contentControlMap.contentControlTag).getFirstOrNullObject();
-            contentControl.load("tag,title,text");
+        // Loop through the mapper to find the bookmarks
+        for (const bookmarkMap of bookmarkMapper) {
+            // Get the bookmark
+            const bookmarkRange: Word.Range = context.document.getBookmarkRangeOrNullObject(bookmarkMap.bookmarkName);
+            bookmarkRange.load("isNullObject");
 
-            // Add the content control to the arrays
-            contentControls.push(contentControl);
-        });
+            // Add the bookmark to the array
+            bookmarks.push({ bookmarkName: bookmarkMap.bookmarkName, bookmarkRange });
+        }
 
+        // Sync the context to ensure the changes are applied
         await context.sync();
     });
 
     // Filter out null objects
-    contentControls = contentControls.filter(contentControl => contentControl.isNullObject !== true);
+    bookmarks = bookmarks.filter(bookmark => !bookmark.bookmarkRange.isNullObject);
 
-    // Return the array of content controls
-    console.info(`Succesfully 'fetched' ${contentControls.length} content controls.`, "getContentControls");
-    return contentControls;
+    // Return the array of bookmark names
+    console.info(`Succesfully 'fetched' ${bookmarks.length} bookmarks.`, "getBookmarks");
+    return bookmarks.map(bookmark => bookmark.bookmarkName);
 }
 
 /**
@@ -69,7 +76,6 @@ export async function getContentControls(contentControlMapper: contentControlMap
  * @returns {Promise<Word.CustomProperty[]>} A promise that resolves to an array of Word.CustomProperty objects.
  */
 export async function getProperties(propertiesMapper: propertyMap[]): Promise<Word.CustomProperty[]> {
-
     // Initialize an empty array to store the custom proprties
     let customProperties: Word.CustomProperty[] = [];
 
@@ -95,4 +101,37 @@ export async function getProperties(propertiesMapper: propertyMap[]): Promise<Wo
     // Return the array of bookmarks
     console.info(`Succesfully 'fetched' ${customProperties.length} custom proprties.`, "getCustomProperties");
     return customProperties;
+}
+
+/**
+ * Retrieves content controls from the document.
+ *
+ * @param {contentControlMap[]} contentControlMapper - An array of content control maps.
+ * @returns {Promise<Word.ContentControl[]>} A promise that resolves to an array of Word.ContentControl objects.
+ */
+export async function getContentControls(contentControlMapper: contentControlMap[]): Promise<Word.ContentControl[]> {
+    // Initialize an empty array to store the content controls
+    let contentControls: Word.ContentControl[] = [];
+
+    // Run the Word API to retrieve the content controls
+    await Word.run(async (context) => {
+        // Loop through the content controls
+        contentControlMapper.forEach(contentControlMap => {
+            // Get the content contro
+            const contentControl: Word.ContentControl = context.document.contentControls.getByTag(contentControlMap.contentControlTag).getFirstOrNullObject();
+            contentControl.load("tag,title,text");
+
+            // Add the content control to the arrays
+            contentControls.push(contentControl);
+        });
+
+        await context.sync();
+    });
+
+    // Filter out null objects
+    contentControls = contentControls.filter(contentControl => contentControl.isNullObject !== true);
+
+    // Return the array of content controls
+    console.info(`Succesfully 'fetched' ${contentControls.length} content controls.`, "getContentControls");
+    return contentControls;
 }

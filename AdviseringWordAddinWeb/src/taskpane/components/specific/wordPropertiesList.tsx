@@ -19,11 +19,11 @@ const customPropertiesResource = promiseWrapper(
     wordDocumentService.getCustomProperties()
 );
 
-export default function WordProprtieList() {
+export default function WordPropertieList() {
 
     const classes = useStyles();
 
-    const customProperties : documentTypes.CustomProperty[] = customPropertiesResource.read();
+    const customProperties: documentTypes.CustomProperty[] = customPropertiesResource.read();
 
     return (
         <div className={classes.properties}>
