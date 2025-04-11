@@ -1,5 +1,6 @@
 ﻿import { bookmarkMap, contentControlMap, propertyMap } from "../config/config";
 
+
 /**
  * Replaceses the bookmarks with content controls.
  *
@@ -69,6 +70,20 @@ export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<strin
     return bookmarks.map(bookmark => bookmark.bookmarkName);
 }
 
+export async function getTest() {
+    // Run the Word API to retrieve the customProperties
+    await Word.run(async (context) => {
+
+        const customDocProps = context.document.properties.customProperties
+        context.load(customDocProps, "key, type, value");
+
+        // Sync the context to ensure the changes are applied
+        await context.sync();
+
+        console.info(customDocProps.toJSON);
+    });
+}
+
 /**
  * Retrieves custom properties from the document.
  *
@@ -76,6 +91,7 @@ export async function getBookmarks(bookmarkMapper: bookmarkMap[]): Promise<strin
  * @returns {Promise<Word.CustomProperty[]>} A promise that resolves to an array of Word.CustomProperty objects.
  */
 export async function getProperties(propertiesMapper: propertyMap[]): Promise<Word.CustomProperty[]> {
+
     // Initialize an empty array to store the custom proprties
     let customProperties: Word.CustomProperty[] = [];
 
@@ -83,8 +99,12 @@ export async function getProperties(propertiesMapper: propertyMap[]): Promise<Wo
     await Word.run(async (context) => {
         // Loop through the mapper to find the proprties
         propertiesMapper.forEach(propertyMap => {
+
+            const customDocProps = context.document.properties.customProperties
+            context.load(customDocProps, "key, type, value");
+
             // Get the custom property
-            const customProperty: Word.CustomProperty = context.document.properties.customProperties.getItemOrNullObject(propertyMap.documentPropertyTag);
+            const customProperty: Word.CustomProperty = context.document.properties.customProperties.getItemOrNullObject(propertyMap.customPropertyTag);
             customProperty.load("key,type,value");
 
             // Add the property to the array

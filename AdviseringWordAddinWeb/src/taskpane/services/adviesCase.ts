@@ -39,5 +39,6 @@ export async function getAdviesCaseProperties(caseId: string): Promise<adviesCas
         adviesCaseProprties.push({ name: String(key), tag: String(key), property: String(adviesCase[key as keyof adviesCaseTypes.AdviesCase]) });
     });
 
+    console.info(`Succesfully 'procesed' ${adviesCaseProprties.length} advies case properties.`, "getAdviesCaseProperties");
     return adviesCaseProprties;
 }

@@ -3,7 +3,6 @@ import { makeStyles } from "@fluentui/react-components";
 
 import ContentItem from "./contentItem";
 import { lazy } from "react";
-import WordControlList from "../specific/wordControlList";
 
 const useStyles = makeStyles(
     {
@@ -18,7 +17,7 @@ export default function Content() {
 
     const UserDataList = lazy(() => import("../specific/userDataList"));
     const WordPropertiesList = lazy(() => import("../specific/wordPropertiesList"));
-    //const WordControlList = lazy(() => import("../specific/wordControlList"));
+    const WordControlList = lazy(() => import("../specific/wordControlList"));
     const AdviesCaseList = lazy(() => import("../specific/adviesCaseList"));
 
     return (<Accordion className={classes.accordion} multiple collapsible>
@@ -35,7 +34,7 @@ export default function Content() {
                 <ContentItem
                 index={3}
                 title="Document content"
-            content={<WordControlList />}
+                content={<WordControlList />}
                 />
                 <ContentItem
                 index={4}

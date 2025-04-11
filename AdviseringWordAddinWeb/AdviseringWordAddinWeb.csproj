@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="src\App.test.tsx" />
     <None Remove="src\taskpane\api\authConfig.ts" />
     <None Remove="src\taskpane\api\userData.ts" />
     <None Remove="src\taskpane\components\common\adviesCaseList.tsx" />
@@ -64,7 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Remove="src\taskpane\api\test\getBookmarks.test.ts" />
+    <TypeScriptCompile Remove="src\taskpane\api\test\wordDocument.test.ts" />
     <TypeScriptCompile Remove="src\taskpane\components\specific\userDataList.tsx" />
   </ItemGroup>
 
@@ -130,5 +131,10 @@
     <TypeScriptSourceRoot />
     <TypeScriptOutDir>.\ClientApp\src\dist</TypeScriptOutDir>
   </PropertyGroup>
-
+  
+  <PropertyGroup>
+	<JavaScriptTestRoot>src\\</JavaScriptTestRoot>
+	<JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+  </PropertyGroup>
+  
 </Project>
