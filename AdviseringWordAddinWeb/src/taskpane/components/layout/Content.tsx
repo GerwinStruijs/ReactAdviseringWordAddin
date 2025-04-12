@@ -1,7 +1,7 @@
 ﻿import { Accordion } from "@fluentui/react-components";
 import { makeStyles } from "@fluentui/react-components";
 
-import ContentItem from "./contentItem";
+import ContentItem from "./content-Item";
 import { lazy } from "react";
 
 const useStyles = makeStyles(

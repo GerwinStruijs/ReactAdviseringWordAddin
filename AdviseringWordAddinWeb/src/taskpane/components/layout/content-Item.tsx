@@ -1,11 +1,11 @@
 ﻿
 "use client";
 import React, { Suspense, useState } from "react";
-import ContentItemHeader from "./contentItemHeader";
+import ContentItemHeader from "./content-Item-header";
 import { AccordionItem, AccordionPanel } from "@fluentui/react-components";
 import { makeStyles, Spinner } from "@fluentui/react-components";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorFallback from "../common/errorFallback";
+import ErrorFallback from "../common/error-fallback";
 import { logErrorToService } from "../../utils/logger";
 
 const useStyles = makeStyles({

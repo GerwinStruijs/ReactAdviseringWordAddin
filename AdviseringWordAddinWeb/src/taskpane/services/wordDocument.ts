@@ -1,6 +1,6 @@
 ﻿import documentConfig from '../config/config.json';
-import * as wordDocumentApi from "../api/wordDocument";
-import * as documentTypes from '../types/documentTypes';
+import * as wordDocumentApi from "../api/word-document";
+import * as documentTypes from '../types/document-types';
 
 /**
  * Function to get custom properties from the Word document

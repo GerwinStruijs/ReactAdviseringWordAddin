@@ -36,14 +36,15 @@
 
   <ItemGroup>
     <None Remove="src\App.test.tsx" />
-    <None Remove="src\taskpane\api\authConfig.ts" />
-    <None Remove="src\taskpane\api\userData.ts" />
+    <None Remove="src\taskpane\api\user-data.ts" />
+    <None Remove="src\taskpane\auth\auth-config.ts" />
     <None Remove="src\taskpane\components\common\adviesCaseList.tsx" />
-    <None Remove="src\taskpane\components\common\ErrorFallback.tsx" />
-    <None Remove="src\taskpane\components\common\IconComponent.tsx" />
+    <None Remove="src\taskpane\components\common\error-fallback.tsx" />
+    <None Remove="src\taskpane\components\common\icon-component.tsx" />
     <None Remove="src\taskpane\components\ContentItem.tsx" />
     <None Remove="src\taskpane\components\ContentItemHeader.tsx" />
     <None Remove="src\taskpane\config\config.ts" />
+    <None Remove="src\taskpane\hooks\auth-provider.tsx" />
     <None Remove="src\taskpane\insertText.ts" />
     <None Remove="src\taskpane\makeStyles.ts" />
     <None Remove="src\taskpane\components\Content.tsx" />
@@ -56,12 +57,12 @@
     <None Remove="src\taskpane\services\UserData.ts" />
     <None Remove="src\taskpane\services\wordDocument.ts" />
     <None Remove="src\taskpane\services\WordService.ts" />
-    <None Remove="src\taskpane\types\adviesCaseResponse.ts" />
-    <None Remove="src\taskpane\types\adviesCaseTypes.ts" />
-    <None Remove="src\taskpane\types\adviesEnums.ts" />
-    <None Remove="src\taskpane\types\adviesProces.ts" />
+    <None Remove="src\taskpane\types\advies-case-response.ts" />
+    <None Remove="src\taskpane\types\advies-case-types.ts" />
+    <None Remove="src\taskpane\types\advies-enums.ts" />
+    <None Remove="src\taskpane\types\advies-proces.ts" />
     <None Remove="src\taskpane\utils\logger.ts" />
-    <None Remove="src\taskpane\utils\promiseWrapper.ts" />
+    <None Remove="src\taskpane\utils\promise-wrapper.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,12 +82,11 @@
   <ItemGroup>
     <Folder Include="src\taskpane\contexts\" />
     <Folder Include="src\taskpane\helpers\" />
-    <Folder Include="src\taskpane\hooks\" />
     <Folder Include="src\taskpane\styles\" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Update="src\taskpane\types\documentTypes.ts">
+    <TypeScriptCompile Update="src\taskpane\types\document-types.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>

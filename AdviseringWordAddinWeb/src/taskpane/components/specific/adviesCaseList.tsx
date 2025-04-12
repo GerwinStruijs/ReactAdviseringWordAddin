@@ -1,8 +1,8 @@
 ﻿import { makeStyles, List, ListItem } from "@fluentui/react-components";
 import * as adviesCaseService from "../../services/adviesCase";
-import * as adviesCaseTypes from "../../types/adviesCaseTypes";
+import * as adviesCaseTypes from "../../types/advies-case-types";
 
-import { promiseWrapper } from "../../utils/promiseWrapper";
+import { promiseWrapper } from "../../utils/promise-wrapper";
 
 const useStyles = makeStyles(
     {

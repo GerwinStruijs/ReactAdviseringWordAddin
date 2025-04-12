@@ -1,7 +1,7 @@
 ﻿import * as wordDocumentService from "../../services/wordDocument";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
-import * as documentTypes from "../../types/documentTypes";
-import { promiseWrapper } from "../../utils/promiseWrapper";
+import * as documentTypes from "../../types/document-types";
+import { promiseWrapper } from "../../utils/promise-wrapper";
 
 const useStyles = makeStyles(
 {

@@ -1,27 +1,23 @@
 import Header from "./pages/header";
-//import Body from "./pages/body";
-
-import { tokens, makeStyles } from "@fluentui/react-components";
-import { Suspense } from "react";
-import React from "react";
+import { makeStyles } from "@fluentui/react-components";
 import Body from "./pages/body";
 
 const useStyles = makeStyles({
     root: {
-        minHeight: "100vh",
-        //backgroundColor: tokens.colorNeutralBackground5,
+        minHeight: "100vh"
     }
 });
-interface AppProps { title: string; }
-const App: React.FC<AppProps> = (props: AppProps) => {
+interface AuthProviderProps { title: string; }
+
+const App = ({ title }: AuthProviderProps) => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Header logo="src/taskpane/assets/react.svg" title={props.title} message="Welcome" />
+            <Header logo="src/taskpane/assets/react.svg" title={title} message="Welcome" />
             <Body />
         </div>
     )
 }
 
-export default App
+export default App;

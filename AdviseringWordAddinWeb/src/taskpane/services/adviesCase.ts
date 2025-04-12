@@ -1,7 +1,7 @@
-﻿import * as adviesCaseApi from "../api/adviesCase";
-import * as adviesCaseTypes from "../types/adviesCaseTypes";
-import { AdviesCaseResponse } from "../types/adviesCaseResponse";
-import { AdviesFase, AdviesOnderdeel, Dictum } from "../types/adviesEnums";
+﻿import * as adviesCaseApi from "../api/advies-case";
+import * as adviesCaseTypes from "../types/advies-case-types";
+import { AdviesCaseResponse } from "../types/advies-case-response";
+import { AdviesFase, AdviesOnderdeel, Dictum } from "../types/advies-enums";
 
 /**
  * Haal een adviescase op

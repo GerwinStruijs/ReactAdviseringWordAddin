@@ -1,4 +1,4 @@
-﻿import { AdviesOnderdeel, AdviesFase, Dictum } from "./adviesEnums";
+﻿import { AdviesOnderdeel, AdviesFase, Dictum } from "./advies-enums";
 
 export class AdviesProces {
     private adviesOnderdeel: AdviesOnderdeel;

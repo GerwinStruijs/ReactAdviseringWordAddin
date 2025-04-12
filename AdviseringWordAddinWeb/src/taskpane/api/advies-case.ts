@@ -1,6 +1,6 @@
 ﻿
-import { AdviesCaseResponse, AdviesCaseDTO } from "../types/adviesCaseResponse";
-import { apiClient } from "./apiClient";
+import { AdviesCaseResponse, AdviesCaseDTO } from "../types/advies-case-response";
+import { apiClient } from "./api-client";
 
 /**
  * Haal een adviescase op

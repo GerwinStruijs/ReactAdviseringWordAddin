@@ -1,5 +1,5 @@
-﻿import { AdviesFase, AdviesOnderdeel, Dictum } from "./adviesEnums";
-import { AdviesProces } from "./adviesProces";
+﻿import { AdviesFase, AdviesOnderdeel, Dictum } from "./advies-enums";
+import { AdviesProces } from "./advies-proces";
 
 export interface AdviesCaseProperty {
     name: string,
