@@ -67,6 +67,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Remove="src\taskpane\api\test\wordDocument.test.ts" />
+    <TypeScriptCompile Remove="src\taskpane\auth\auth-dialog.ts" />
     <TypeScriptCompile Remove="src\taskpane\components\specific\userDataList.tsx" />
   </ItemGroup>
 
@@ -80,6 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="certificates\" />
     <Folder Include="src\taskpane\contexts\" />
     <Folder Include="src\taskpane\helpers\" />
     <Folder Include="src\taskpane\styles\" />
