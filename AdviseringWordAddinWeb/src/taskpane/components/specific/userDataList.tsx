@@ -1,6 +1,7 @@
 ﻿import { List, ListItem, makeStyles } from "@fluentui/react-components";
-import * as userDataTypes from "../../types/user-data-types";
-import { getUserDataPropertiesResource } from "../../utils/user-data-cache";
+import { getResource } from "../../utils/generic-resource-cache";
+import { getUserDataProperties } from "../../services/user-data-service";
+import { UserDataProperty } from "../../types/user-data-types";
 
 const useStyles = makeStyles({
     properties: { padding: '10px' },
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
 export default function UserDataList() {
     const classes = useStyles();
 
-    const resource = getUserDataPropertiesResource("6d788f90-0a0b-4292-9507-10d7af6d109f");
+    const resource = getResource<[string], UserDataProperty[]>("userData", getUserDataProperties, "6d788f90-0a0b-4292-9507-10d7af6d109f")
     const userDataProperties = resource.read();
 
     return (

@@ -7,11 +7,12 @@ const useStyles = makeStyles({
         minHeight: "100vh"
     }
 });
-export default function App(title: string) {
+
+export default function App() {
     const classes = useStyles();
 
     return (<div className={classes.root}>
-            <Header logo="src/taskpane/assets/react.svg" title={title} message="Welcome" />
+            <Header logo="src/taskpane/assets/react.svg" title="Advisering Word Add-in" message="Welcome" />
             <Body />
         </div>
     )

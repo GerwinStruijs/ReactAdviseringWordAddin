@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import App from './app.tsx';
 import { AuthProvider } from './hooks/auth-provider.tsx';
 
-const title: string = "Advisering Word Add-in";
 const rootElement: HTMLElement | null = document.getElementById("container");
 const root = rootElement ? createRoot(rootElement) : undefined;
 
@@ -19,7 +18,7 @@ Office.onReady(() => {
     root?.render(
         <FluentProvider theme={webLightTheme}>
             <AuthProvider>
-                <App title={title} />
+                <App/>
             </AuthProvider>
         </FluentProvider>
     );
