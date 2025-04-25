@@ -1,4 +1,4 @@
-﻿import * as adviesCaseApi from "../api/advies-case";
+﻿import * as adviesCaseApi from "../api/advies-case-api";
 import * as adviesCaseTypes from "../types/advies-case-types";
 import { AdviesCaseResponse } from "../types/advies-case-response";
 import { AdviesFase, AdviesOnderdeel, Dictum } from "../types/advies-enums";
@@ -31,6 +31,8 @@ export async function getAdviesCase(caseId: string): Promise<adviesCaseTypes.Adv
  * @returns AdviesCaseProperty[]
  */
 export async function getAdviesCaseProperties(caseId: string): Promise<adviesCaseTypes.AdviesCaseProperty[]> {
+
+    console.info(`Getting advies case properties for caseId: ${caseId}`, "getAdviesCaseProperties");
 
     const adviesCase: adviesCaseTypes.AdviesCase = await getAdviesCase(caseId);
 

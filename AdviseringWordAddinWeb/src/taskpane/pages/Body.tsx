@@ -2,7 +2,5 @@
 
 export default function Body() {
 
-    return (
-            <Content></Content>
-    );
+    return (<Content></Content>);
 };

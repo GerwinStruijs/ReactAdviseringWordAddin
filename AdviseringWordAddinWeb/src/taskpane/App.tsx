@@ -7,17 +7,14 @@ const useStyles = makeStyles({
         minHeight: "100vh"
     }
 });
-interface AuthProviderProps { title: string; }
-
-const App = ({ title }: AuthProviderProps) => {
+export default function App(title: string) {
     const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
+    return (<div className={classes.root}>
             <Header logo="src/taskpane/assets/react.svg" title={title} message="Welcome" />
             <Body />
         </div>
     )
 }
 
-export default App;
+

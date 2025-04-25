@@ -1,11 +1,11 @@
 ﻿import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter'
 
-export const apiClient = axios.create({
+export const raadsaamApiClient = axios.create({
     baseURL: '/api',
 });
 
-const adapter = new MockAdapter(apiClient, { delayResponse: 5000 });
+const adapter = new MockAdapter(raadsaamApiClient, { delayResponse: 2000 });
 
 adapter.onGet('/case/W01.01.00001').reply(200, {
     data: {

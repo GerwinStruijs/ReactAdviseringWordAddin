@@ -1,4 +1,4 @@
-﻿import * as wordDocumentService from "../../services/wordDocument";
+﻿import * as wordDocumentService from "../../services/word-document-service";
 import { makeStyles, List, ListItem } from "@fluentui/react-components";
 import * as documentTypes from "../../types/document-types";
 import { promiseWrapper } from "../../utils/promise-wrapper";

@@ -1,43 +1,38 @@
-﻿import { makeStyles } from "@fluentui/react-components";
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
-import { loginRequest } from "../../auth/auth-config";
+﻿import { List, ListItem, makeStyles } from "@fluentui/react-components";
+import * as userDataTypes from "../../types/user-data-types";
+import { getUserDataPropertiesResource } from "../../utils/user-data-cache";
 
-const useStyles = makeStyles(
-    {
-        properties: {
-            padding: '10px',
-        },
-        propertiesList: {},
-        propertiesListItem: { padding: '5px' },
-        propertiesListItemHeader: {
-            fontWeight: '500'
-        },
-    });
+const useStyles = makeStyles({
+    properties: { padding: '10px' },
+    propertiesList: {},
+    propertiesListItem: { padding: '5px' },
+    propertiesListItemHeader: { fontWeight: '500' },
+});
 
 export default function UserDataList() {
-
     const classes = useStyles();
 
-    const { instance } = useMsal();
-    const activeAccount = instance.getActiveAccount();
+    const resource = getUserDataPropertiesResource("6d788f90-0a0b-4292-9507-10d7af6d109f");
+    const userDataProperties = resource.read();
 
-    if (!activeAccount) {
-
-        instance.loginPopup({
-            ...loginRequest,
-            prompt: 'select_account',
-        });
-    }
-     
     return (
         <div className={classes.properties}>
-            <UnauthenticatedTemplate>
-                <p>Logging you in...</p>
-            </UnauthenticatedTemplate>
-            <AuthenticatedTemplate>
-                <p>You're signed in!</p>
-                <p>{activeAccount?.idToken}</p>
-            </AuthenticatedTemplate>  
+            <div>
+                <List className={classes.propertiesList} navigationMode="items">
+                    {userDataProperties.map((userDataProperty) => (
+                        <ListItem key={userDataProperty.tag}>
+                            <div className={classes.propertiesListItem}>
+                                <div className={classes.propertiesListItemHeader}>
+                                    {userDataProperty.name}
+                                </div>
+                                <div>
+                                    {userDataProperty.property}
+                                </div>
+                            </div>
+                        </ListItem>
+                ))}
+                </List>
+            </div>
         </div>
     );
-};
+}

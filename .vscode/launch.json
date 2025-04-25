@@ -9,8 +9,8 @@
             "request": "launch",
             "skipFiles": ["${workspaceFolder}/AdviserringWordAddinWeb/node_modules/**/*.js"],
             "type": "chrome",
-            "preLaunchTask": "start development server",
-            "url": "http://localhost:5173",
+            //"preLaunchTask": "start development server",
+            "url": "https://localhost:5173",
             "webRoot": "${workspaceFolder}",
         },
     ]

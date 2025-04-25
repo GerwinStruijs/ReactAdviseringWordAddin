@@ -1,5 +1,5 @@
 ﻿import { makeStyles, List, ListItem } from "@fluentui/react-components";
-import * as adviesCaseService from "../../services/adviesCase";
+import * as adviesCaseService from "../../services/advies-case-service";
 import * as adviesCaseTypes from "../../types/advies-case-types";
 
 import { promiseWrapper } from "../../utils/promise-wrapper";

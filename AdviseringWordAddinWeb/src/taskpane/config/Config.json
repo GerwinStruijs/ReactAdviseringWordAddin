@@ -1,4 +1,18 @@
 {
+  "userDataMapper": [
+    {
+      "userDataName": "Jurist",
+      "userDataTag": "jurist"
+    },
+    {
+      "userDataName": "Meelezer",
+      "userDataTag": "meelezer"
+    },
+    {
+      "userDataName": "Rapporteur",
+      "userDataTag": "rapporteur"
+    }
+  ],
   "propertiesMapper": [
     {
       "customPropertyName": "Dictum",

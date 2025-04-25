@@ -1,5 +1,5 @@
 ﻿import documentConfig from '../config/config.json';
-import * as wordDocumentApi from "../api/word-document";
+import * as wordDocumentApi from "../api/word-document-api";
 import * as documentTypes from '../types/document-types';
 
 /**

@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './app.tsx';
 import { AuthProvider } from './hooks/auth-provider.tsx';
 
-const title = "Advisering Word Add-in";
+const title: string = "Advisering Word Add-in";
 const rootElement: HTMLElement | null = document.getElementById("container");
 const root = rootElement ? createRoot(rootElement) : undefined;
 

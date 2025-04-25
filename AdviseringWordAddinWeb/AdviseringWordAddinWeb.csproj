@@ -36,7 +36,7 @@
 
   <ItemGroup>
     <None Remove="src\App.test.tsx" />
-    <None Remove="src\taskpane\api\user-data.ts" />
+    <None Remove="src\taskpane\api\user-data-api.ts" />
     <None Remove="src\taskpane\auth\auth-config.ts" />
     <None Remove="src\taskpane\components\common\adviesCaseList.tsx" />
     <None Remove="src\taskpane\components\common\error-fallback.tsx" />
@@ -51,21 +51,26 @@
     <None Remove="src\taskpane\components\ContentControls.tsx" />
     <None Remove="src\taskpane\components\Document.tsx" />
     <None Remove="src\taskpane\components\Proprties.tsx" />
-    <None Remove="src\taskpane\services\adviesCase.ts" />
+    <None Remove="src\taskpane\services\advies-case-service.ts" />
     <None Remove="src\taskpane\services\CaseService.ts" />
     <None Remove="src\taskpane\services\client.ts" />
-    <None Remove="src\taskpane\services\UserData.ts" />
-    <None Remove="src\taskpane\services\wordDocument.ts" />
+    <None Remove="src\taskpane\services\user-data-service.ts" />
+    <None Remove="src\taskpane\services\word-document-service.ts" />
     <None Remove="src\taskpane\services\WordService.ts" />
     <None Remove="src\taskpane\types\advies-case-response.ts" />
     <None Remove="src\taskpane\types\advies-case-types.ts" />
     <None Remove="src\taskpane\types\advies-enums.ts" />
     <None Remove="src\taskpane\types\advies-proces.ts" />
+    <None Remove="src\taskpane\types\user-data-response.ts" />
+    <None Remove="src\taskpane\types\user-data-types.ts" />
+    <None Remove="src\taskpane\utils\generic-resource-cache.ts" />
     <None Remove="src\taskpane\utils\logger.ts" />
     <None Remove="src\taskpane\utils\promise-wrapper.ts" />
+    <None Remove="src\taskpane\utils\user-data-cache.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="src\taskpane\api\graph-api-client.ts" />
     <TypeScriptCompile Remove="src\taskpane\api\test\wordDocument.test.ts" />
     <TypeScriptCompile Remove="src\taskpane\auth\auth-dialog.ts" />
     <TypeScriptCompile Remove="src\taskpane\components\specific\userDataList.tsx" />
@@ -89,6 +94,12 @@
 
   <ItemGroup>
     <TypeScriptCompile Update="src\taskpane\types\document-types.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="src\taskpane\types\user-data-response.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Update="src\taskpane\types\user-data-types.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>

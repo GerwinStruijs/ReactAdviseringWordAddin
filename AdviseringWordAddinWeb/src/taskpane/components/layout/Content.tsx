@@ -3,6 +3,7 @@ import { makeStyles } from "@fluentui/react-components";
 
 import ContentItem from "./content-Item";
 import { lazy } from "react";
+import { useMsal } from "@azure/msal-react";
 
 const useStyles = makeStyles(
     {
@@ -14,6 +15,13 @@ const useStyles = makeStyles(
 export default function Content() {
 
     const classes = useStyles();
+
+    const { instance } = useMsal();
+    const account = instance.getActiveAccount();
+
+    if (!account) {
+        return <div>No active account found.</div>;
+    }
 
     const UserDataList = lazy(() => import("../specific/userDataList"));
     const WordPropertiesList = lazy(() => import("../specific/wordPropertiesList"));
