@@ -16,15 +16,19 @@ const useStyles = makeStyles(
         },
     });
 
-const adviesCasePropertiesResource = promiseWrapper(
-    adviesCaseService.getAdviesCaseProperties("W01.01.00001")
-);
+const cache = new Map<string, ReturnType<typeof promiseWrapper<adviesCaseTypes.AdviesCaseProperty[]>>>();
 
-export default function AdviesCaseList() {
+export default function AdviesCaseList({ caseId }: { caseId: string }) {
 
     const classes = useStyles();
 
-    const adviesCaseProperties: adviesCaseTypes.AdviesCaseProperty[] = adviesCasePropertiesResource.read();
+    if (!cache.has(caseId)){
+
+        const promise = adviesCaseService.getAdviesCaseProperties(caseId);
+        cache.set(caseId, promiseWrapper<adviesCaseTypes.AdviesCaseProperty[]>(promise));
+    }
+
+    const adviesCaseProperties: adviesCaseTypes.AdviesCaseProperty[] = cache.get(caseId)!.read();
 
     return (
         <div className={classes.properties}>

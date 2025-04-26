@@ -1,15 +1,19 @@
 ﻿import React, { useEffect, useState } from "react";
-import {
-    PublicClientApplication,
-    EventType,
-    AuthenticationResult,
-} from "@azure/msal-browser";
+import {PublicClientApplication, EventType, AuthenticationResult} from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig, loginRequest } from "../auth/auth-config";
+import { makeStyles, Spinner } from "@fluentui/react-components";
 
-interface AuthProviderProps {
-    children: React.ReactNode;
-}
+const useStyles = makeStyles({
+    spinner: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingBottom: "10px",
+        paddingTop: "40px",
+    }
+});
+
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -23,7 +27,10 @@ msalInstance.addEventCallback((event) => {
     }
 });
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+
+    const classes = useStyles();
+
     const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
@@ -56,7 +63,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, []);
 
     if (!isReady) {
-        return <div>Signing you in...</div>;
+        return <div className={classes.spinner}><Spinner size="medium" label="Logging u in..." /></div>;
     }
 
     return <MsalProvider instance={msalInstance}>{children}</MsalProvider>;

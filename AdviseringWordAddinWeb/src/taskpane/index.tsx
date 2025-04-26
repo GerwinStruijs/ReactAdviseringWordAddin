@@ -1,7 +1,6 @@
 import { FluentProvider, webLightTheme } from "@fluentui/react-components";
 import { createRoot } from 'react-dom/client';
 import App from './app.tsx';
-import { AuthProvider } from './hooks/auth-provider.tsx';
 
 const rootElement: HTMLElement | null = document.getElementById("container");
 const root = rootElement ? createRoot(rootElement) : undefined;
@@ -17,9 +16,7 @@ Office.onReady(() => {
 
     root?.render(
         <FluentProvider theme={webLightTheme}>
-            <AuthProvider>
-                <App/>
-            </AuthProvider>
+            <App/>
         </FluentProvider>
     );
 });

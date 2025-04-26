@@ -18,10 +18,7 @@ export default function Content() {
 
     const { instance } = useMsal();
     const account = instance.getActiveAccount();
-
-    if (!account) {
-        return <div>No active account found.</div>;
-    }
+    const userId: string = account?.localAccountId || "";
 
     const UserDataList = lazy(() => import("../specific/userDataList"));
     const WordPropertiesList = lazy(() => import("../specific/wordPropertiesList"));
@@ -32,7 +29,7 @@ export default function Content() {
                 <ContentItem
                 index={1}
                 title="User data "
-                content={<UserDataList />}
+                content={<UserDataList userId={userId} />}
                 />
                 <ContentItem
                 index={2}
@@ -47,7 +44,7 @@ export default function Content() {
                 <ContentItem
                 index={4}
                 title="Case details"
-                content={<AdviesCaseList />}
+                content={<AdviesCaseList caseId="W01.01.00001" />}
                 />
         </Accordion>
     );

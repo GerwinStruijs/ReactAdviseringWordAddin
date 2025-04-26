@@ -10,10 +10,15 @@ const useStyles = makeStyles({
     propertiesListItemHeader: { fontWeight: '500' },
 });
 
-export default function UserDataList() {
+/**
+ * Displays the user data
+ * @param userId The user id of the user to display the data for
+ * @returns A list of user data properties
+ */
+export default function UserDataList({ userId }: { userId: string }) {
     const classes = useStyles();
 
-    const resource = getResource<[string], UserDataProperty[]>("userData", getUserDataProperties, "6d788f90-0a0b-4292-9507-10d7af6d109f")
+    const resource = getResource<[string], UserDataProperty[]>("userData", getUserDataProperties, userId)
     const userDataProperties = resource.read();
 
     return (

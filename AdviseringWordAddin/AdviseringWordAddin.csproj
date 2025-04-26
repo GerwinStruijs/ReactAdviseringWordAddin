@@ -51,6 +51,11 @@
       <OpcRelationship>manifest-oemanifest</OpcRelationship>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="..\AdviseringWordAddinWeb\src\taskpane\components\layout\Content.1.tsx">
+      <Link>Content.1.tsx</Link>
+    </TypeScriptCompile>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
